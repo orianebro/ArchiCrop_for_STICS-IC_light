@@ -8,3 +8,29 @@
 #   2. from plant file: leaf lifespan (lifespanF) and ratio of lifespan between juvenile stage and exponential phase (ratiodurvieI)
 
 library(SticsRPacks)
+
+workspace <- normalizePath("0-data/workspace_v11_gen")
+usms <- get_usms_list(file.path(workspace, "usms.xml"))
+output_path <- file.path("2-outputs", "usms_txt")
+javastics_path <- "/Users/rvezy/Documents/dev/stics/JavaSTICS-v11.0.0-rc1"
+
+gen_usms_xml2txt(
+  javastics = javastics_path,
+  workspace = workspace,
+  out_dir = file.path("2-outputs", "usms_txt"),
+  parallel = TRUE
+)
+
+sim_options <- stics_wrapper_options(
+  javastics = javastics_path,
+  workspace = output_path,
+  parallel = TRUE
+)
+
+sim_run <- stics_wrapper(
+  sim_options,
+  # param_values = NULL, # Update parameters from here directly, e.g. hauteur_threshold, or code_transrad?
+  # var = NULL,
+  # dates = NULL,
+  # situation = "usm_1"
+)
