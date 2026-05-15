@@ -61,6 +61,11 @@ sowing_delay <- c("same" = 0, "later" = 20)
 
 ## Create the tec files
 
+variety_code_per_species <- c(
+  sorghum = 1, # We only have one variety
+  maize = 17 # BEOU, from the tec file we are using as reference
+)
+
 # Reference tec files from the sole crops:
 tec_ref <- c(
   sorghum = file.path("0-data", "workspace_v11", "02NT18SorgV2D1_tec.xml"),
@@ -114,6 +119,13 @@ for (doe_row in 1:nrow(df_doe)) {
       new_tec_file,
       "orientrang",
       row_orientation,
+      overwrite = TRUE
+    )
+
+    SticsRFiles::set_param_xml(
+      new_tec_file,
+      "variete",
+      variety_code_per_species[i], # BEOU
       overwrite = TRUE
     )
 
@@ -192,10 +204,21 @@ file.copy(
 
 # copy plant files:
 dir.create(file.path(generated_workspace, "plant"), showWarnings = FALSE)
+
+plt_files <- c(
+  sorghum = "sorgho_trop_plt.xml",
+  maize = "corn_LI_step2_BEOU_plt.xml"
+)
+
 file.copy(
-  file.path(original_workspace, "plant"),
-  generated_workspace,
-  recursive = TRUE,
+  file.path(original_workspace, "plant", plt_files["sorghum"]),
+  file.path(generated_workspace, "plant", plt_files["sorghum"]),
+  overwrite = TRUE
+)
+
+file.copy(
+  file.path(original_workspace, "plant", plt_files["maize"]),
+  file.path(generated_workspace, "plant", plt_files["maize"]),
   overwrite = TRUE
 )
 
@@ -238,16 +261,6 @@ file.copy(
 )
 
 # Create the usms in the usms.xml file, each named after the doe row, and linking to the tec file needed.
-file.copy(
-  file.path(original_workspace, "usms.xml"),
-  file.path(generated_workspace, "usms.xml"),
-  overwrite = TRUE
-)
-
-plt_files <- c(
-  sorghum = "sorgho_trop_plt.xml",
-  maize = "corn_LI_step2_BEOU_plt.xml"
-)
 
 usms_param_df <- data.frame(
   usm = paste0("usm_", 1:nrow(df_doe)),
@@ -270,6 +283,12 @@ usms_param_df <- data.frame(
 SticsRFiles::gen_usms_xml(
   file.path(generated_workspace, "usms.xml"),
   param_df = usms_param_df
+)
+
+SticsRFiles::upgrade_usms_xml_10_11(
+  file.path(generated_workspace, "usms.xml"),
+  generated_workspace,
+  overwrite = TRUE
 )
 
 write.csv(df_doe, "2-outputs/doe_realized.csv", row.names = FALSE)
