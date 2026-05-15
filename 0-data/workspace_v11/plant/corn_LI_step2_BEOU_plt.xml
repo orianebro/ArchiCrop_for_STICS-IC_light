@@ -84,7 +84,7 @@
     <param format="real" max="15.0" min="-10.0" nom="tgmin">8.00000</param>
     <option choix="1" nom="annual or perennial" nomParam="codeperenne">
       <choix code="1" nom="annual">
-            </choix>
+      </choix>
       <choix code="2" nom="perennial"/>
     </option>
     <option choix="1" nom="germination or latency" nomParam="codegermin">
@@ -169,14 +169,14 @@
     </option>
   </formalisme>
   <formalisme nom="radiation interception">
-    <option choix="1" nom="radiation interception" nomParam="codetransrad">
+    <option choix="2" nom="radiation interception" nomParam="codetransrad">
       <choix code="1" nom="Beer's law"/>
       <choix code="2" nom="radiation transfers">
-        <param format="integer" max="3" min="1" nom="forme">-999</param>
-        <param format="real" max="5.0" min="-5.0" nom="rapforme">-999</param>
-        <param format="real" max="10.0" min="-10.0" nom="adfol">-999</param>
-        <param format="real" max="10.0" min="1.0" nom="dfolbas">-999</param>
-        <param format="real" max="10.0" min="1.0" nom="dfolhaut">-999</param>
+        <param format="integer" max="3" min="1" nom="forme">1</param>
+        <param format="real" max="5.0" min="-5.0" nom="rapforme">4.54</param>
+        <param format="real" max="10.0" min="-10.0" nom="adfol">1</param>
+        <param format="real" max="10.0" min="1.0" nom="dfolbas">5</param>
+        <param format="real" max="10.0" min="1.0" nom="dfolhaut">5</param>
       </choix>
     </option>
   </formalisme>
@@ -510,7 +510,7 @@
         <formalismev nom="radiation interception">
           <optionv nom="codetransrad">
             <param code="1" format="real" max="1.5" min="0.1" nom="extin">0.7</param>
-            <param code="2" format="real" max="2.0" min="0.1" nom="ktrou">-999</param>
+            <param code="2" format="real" max="2.0" min="0.1" nom="ktrou">0.7</param>
           </optionv>
         </formalismev>
         <formalismev nom="shoot biomass growth">
@@ -602,7 +602,7 @@
         <formalismev nom="radiation interception">
           <optionv nom="codetransrad">
             <param code="1" format="real" max="1.5" min="0.1" nom="extin">0.7</param>
-            <param code="2" format="real" max="2.0" min="0.1" nom="ktrou">-999</param>
+            <param code="2" format="real" max="2.0" min="0.1" nom="ktrou">0.7</param>
           </optionv>
         </formalismev>
         <formalismev nom="shoot biomass growth">
@@ -694,7 +694,7 @@
         <formalismev nom="radiation interception">
           <optionv nom="codetransrad">
             <param code="1" format="real" max="1.5" min="0.1" nom="extin">0.7</param>
-            <param code="2" format="real" max="2.0" min="0.1" nom="ktrou">-999</param>
+            <param code="2" format="real" max="2.0" min="0.1" nom="ktrou">0.7</param>
           </optionv>
         </formalismev>
         <formalismev nom="shoot biomass growth">
@@ -786,7 +786,7 @@
         <formalismev nom="radiation interception">
           <optionv nom="codetransrad">
             <param code="1" format="real" max="1.5" min="0.1" nom="extin">0.7</param>
-            <param code="2" format="real" max="2.0" min="0.1" nom="ktrou">-999</param>
+            <param code="2" format="real" max="2.0" min="0.1" nom="ktrou">0.7</param>
           </optionv>
         </formalismev>
         <formalismev nom="shoot biomass growth">
@@ -878,7 +878,7 @@
         <formalismev nom="radiation interception">
           <optionv nom="codetransrad">
             <param code="1" format="real" max="1.5" min="0.1" nom="extin">0.7</param>
-            <param code="2" format="real" max="2.0" min="0.1" nom="ktrou">-999</param>
+            <param code="2" format="real" max="2.0" min="0.1" nom="ktrou">0.7</param>
           </optionv>
         </formalismev>
         <formalismev nom="shoot biomass growth">
@@ -970,7 +970,7 @@
         <formalismev nom="radiation interception">
           <optionv nom="codetransrad">
             <param code="1" format="real" max="1.5" min="0.1" nom="extin">0.7</param>
-            <param code="2" format="real" max="2.0" min="0.1" nom="ktrou">-999</param>
+            <param code="2" format="real" max="2.0" min="0.1" nom="ktrou">0.7</param>
           </optionv>
         </formalismev>
         <formalismev nom="shoot biomass growth">
@@ -1062,7 +1062,7 @@
         <formalismev nom="radiation interception">
           <optionv nom="codetransrad">
             <param code="1" format="real" max="1.5" min="0.1" nom="extin">0.7</param>
-            <param code="2" format="real" max="2.0" min="0.1" nom="ktrou">-999</param>
+            <param code="2" format="real" max="2.0" min="0.1" nom="ktrou">0.7</param>
           </optionv>
         </formalismev>
         <formalismev nom="shoot biomass growth">
@@ -1154,7 +1154,7 @@
         <formalismev nom="radiation interception">
           <optionv nom="codetransrad">
             <param code="1" format="real" max="1.5" min="0.1" nom="extin">0.7</param>
-            <param code="2" format="real" max="2.0" min="0.1" nom="ktrou">-999</param>
+            <param code="2" format="real" max="2.0" min="0.1" nom="ktrou">0.7</param>
           </optionv>
         </formalismev>
         <formalismev nom="shoot biomass growth">
@@ -1246,7 +1246,7 @@
         <formalismev nom="radiation interception">
           <optionv nom="codetransrad">
             <param code="1" format="real" max="1.5" min="0.1" nom="extin">0.7</param>
-            <param code="2" format="real" max="2.0" min="0.1" nom="ktrou">-999</param>
+            <param code="2" format="real" max="2.0" min="0.1" nom="ktrou">0.7</param>
           </optionv>
         </formalismev>
         <formalismev nom="shoot biomass growth">
@@ -1338,7 +1338,7 @@
         <formalismev nom="radiation interception">
           <optionv nom="codetransrad">
             <param code="1" format="real" max="1.5" min="0.1" nom="extin">0.7</param>
-            <param code="2" format="real" max="2.0" min="0.1" nom="ktrou">-999</param>
+            <param code="2" format="real" max="2.0" min="0.1" nom="ktrou">0.7</param>
           </optionv>
         </formalismev>
         <formalismev nom="shoot biomass growth">
@@ -1430,7 +1430,7 @@
         <formalismev nom="radiation interception">
           <optionv nom="codetransrad">
             <param code="1" format="real" max="1.5" min="0.1" nom="extin">0.7</param>
-            <param code="2" format="real" max="2.0" min="0.1" nom="ktrou">-999</param>
+            <param code="2" format="real" max="2.0" min="0.1" nom="ktrou">0.7</param>
           </optionv>
         </formalismev>
         <formalismev nom="shoot biomass growth">
@@ -1522,7 +1522,7 @@
         <formalismev nom="radiation interception">
           <optionv nom="codetransrad">
             <param code="1" format="real" max="1.5" min="0.1" nom="extin">0.7</param>
-            <param code="2" format="real" max="2.0" min="0.1" nom="ktrou">-999</param>
+            <param code="2" format="real" max="2.0" min="0.1" nom="ktrou">0.7</param>
           </optionv>
         </formalismev>
         <formalismev nom="shoot biomass growth">
@@ -1614,7 +1614,7 @@
         <formalismev nom="radiation interception">
           <optionv nom="codetransrad">
             <param code="1" format="real" max="1.5" min="0.1" nom="extin">0.7</param>
-            <param code="2" format="real" max="2.0" min="0.1" nom="ktrou">-999</param>
+            <param code="2" format="real" max="2.0" min="0.1" nom="ktrou">0.7</param>
           </optionv>
         </formalismev>
         <formalismev nom="shoot biomass growth">
@@ -1706,7 +1706,7 @@
         <formalismev nom="radiation interception">
           <optionv nom="codetransrad">
             <param code="1" format="real" max="1.5" min="0.1" nom="extin">0.7</param>
-            <param code="2" format="real" max="2.0" min="0.1" nom="ktrou">-999</param>
+            <param code="2" format="real" max="2.0" min="0.1" nom="ktrou">0.7</param>
           </optionv>
         </formalismev>
         <formalismev nom="shoot biomass growth">
@@ -1798,7 +1798,7 @@
         <formalismev nom="radiation interception">
           <optionv nom="codetransrad">
             <param code="1" format="real" max="1.5" min="0.1" nom="extin">0.7</param>
-            <param code="2" format="real" max="2.0" min="0.1" nom="ktrou">-999</param>
+            <param code="2" format="real" max="2.0" min="0.1" nom="ktrou">0.7</param>
           </optionv>
         </formalismev>
         <formalismev nom="shoot biomass growth">
@@ -1890,7 +1890,7 @@
         <formalismev nom="radiation interception">
           <optionv nom="codetransrad">
             <param code="1" format="real" max="1.5" min="0.1" nom="extin">0.7</param>
-            <param code="2" format="real" max="2.0" min="0.1" nom="ktrou">-999</param>
+            <param code="2" format="real" max="2.0" min="0.1" nom="ktrou">0.7</param>
           </optionv>
         </formalismev>
         <formalismev nom="shoot biomass growth">
@@ -1982,7 +1982,7 @@
         <formalismev nom="radiation interception">
           <optionv nom="codetransrad">
             <param code="1" format="real" max="1.5" min="0.1" nom="extin">0.7</param>
-            <param code="2" format="real" max="2.0" min="0.1" nom="ktrou">-999</param>
+            <param code="2" format="real" max="2.0" min="0.1" nom="ktrou">0.7</param>
           </optionv>
         </formalismev>
         <formalismev nom="shoot biomass growth">
@@ -2074,7 +2074,7 @@
         <formalismev nom="radiation interception">
           <optionv nom="codetransrad">
             <param code="1" format="real" max="1.5" min="0.1" nom="extin">0.7</param>
-            <param code="2" format="real" max="2.0" min="0.1" nom="ktrou">-999</param>
+            <param code="2" format="real" max="2.0" min="0.1" nom="ktrou">0.7</param>
           </optionv>
         </formalismev>
         <formalismev nom="shoot biomass growth">
@@ -2166,7 +2166,7 @@
         <formalismev nom="radiation interception">
           <optionv nom="codetransrad">
             <param code="1" format="real" max="1.5" min="0.1" nom="extin">0.7</param>
-            <param code="2" format="real" max="2.0" min="0.1" nom="ktrou">-999</param>
+            <param code="2" format="real" max="2.0" min="0.1" nom="ktrou">0.7</param>
           </optionv>
         </formalismev>
         <formalismev nom="shoot biomass growth">
@@ -2258,7 +2258,7 @@
         <formalismev nom="radiation interception">
           <optionv nom="codetransrad">
             <param code="1" format="real" max="1.5" min="0.1" nom="extin">0.7</param>
-            <param code="2" format="real" max="2.0" min="0.1" nom="ktrou">-999</param>
+            <param code="2" format="real" max="2.0" min="0.1" nom="ktrou">0.7</param>
           </optionv>
         </formalismev>
         <formalismev nom="shoot biomass growth">
@@ -2350,7 +2350,7 @@
         <formalismev nom="radiation interception">
           <optionv nom="codetransrad">
             <param code="1" format="real" max="1.5" min="0.1" nom="extin">0.7</param>
-            <param code="2" format="real" max="2.0" min="0.1" nom="ktrou">-999</param>
+            <param code="2" format="real" max="2.0" min="0.1" nom="ktrou">0.7</param>
           </optionv>
         </formalismev>
         <formalismev nom="shoot biomass growth">
