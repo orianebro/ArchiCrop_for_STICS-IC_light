@@ -15,7 +15,7 @@ output_path <- file.path("2-outputs", "usms_txt")
 javastics_path <- "/Users/rvezy/Documents/dev/stics/JavaSTICS-v11.0.0-rc1"
 
 gen_usms_xml2txt(
-  javastics = javastics_path,
+  # javastics = javastics_path,
   workspace = workspace,
   out_dir = file.path("2-outputs", "usms_txt"),
   parallel = TRUE
@@ -33,4 +33,20 @@ sim_run <- stics_wrapper(
   # var = NULL,
   # dates = NULL,
   # situation = "usm_1"
+)
+
+beer_params <- c(codetransrad = 1, codetradtec = 2)
+radiative_transfer_params <- c(
+  codetransrad = 2, # This is for activating the radiative transfer model in STICS (Beer or 2.5D)
+  codetradtec = 1 # This is for activating the planting structure
+)
+
+sim_run_beer <- stics_wrapper(
+  sim_options,
+  param_values = beer_params,
+)
+
+sim_run_2.5D <- stics_wrapper(
+  sim_options,
+  param_values = radiative_transfer_params,
 )
