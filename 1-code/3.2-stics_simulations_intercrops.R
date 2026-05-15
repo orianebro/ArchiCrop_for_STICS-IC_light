@@ -11,13 +11,13 @@ library(SticsRPacks)
 
 workspace <- normalizePath("0-data/workspace_v11_gen")
 usms <- get_usms_list(file.path(workspace, "usms.xml"))
-output_path <- file.path("2-outputs", "usms_txt")
+output_path <- file.path("2-outputs", "usms_txt_intercrops")
 javastics_path <- "/Users/rvezy/Documents/dev/stics/JavaSTICS-v11.0.0-rc1"
 
 gen_usms_xml2txt(
   # javastics = javastics_path,
   workspace = workspace,
-  out_dir = file.path("2-outputs", "usms_txt"),
+  out_dir = output_path,
   parallel = TRUE
 )
 
@@ -50,3 +50,26 @@ sim_run_2.5D <- stics_wrapper(
   sim_options,
   param_values = radiative_transfer_params,
 )
+
+p <- plot(sim_run_beer$sim_list, type = "dynamic", all_situations = TRUE)
+p$usm_1
+
+sim_beer <- CroPlotR::bind_rows(sim_run_beer$sim_list)
+sim_2.5D <- CroPlotR::bind_rows(sim_run_2.5D$sim_list)
+
+sim_beer$algorithm <- "Beer"
+sim_2.5D$algorithm <- "2.5D"
+
+# Concatenate the two dataframes:
+sim_all <- merge(sim_beer, sim_2.5D, all = TRUE)
+
+write.csv(
+  sim_all,
+  file.path("2-outputs", "simulations_stics.csv"),
+  row.names = FALSE
+)
+
+#! TODO:
+# 1. check the plant files parameters + tec files too
+# 2. Parameterize plant height ~ development for both maize and sorghum
+# 3. Check the outputs of the simulations
