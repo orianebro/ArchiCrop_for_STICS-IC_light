@@ -51,3 +51,5 @@ rsconnect/
 # Remove generated files:
 0-data/workspace_v11_gen
 2-outputs/usms_txt
+2-outputs/usms_txt_monocrops
+2-outputs/usms_txt_intercrops
