@@ -8,18 +8,12 @@
 #   2. from plant file: leaf lifespan (lifespanF) and ratio of lifespan between juvenile stage and exponential phase (ratiodurvieI)
 
 library(SticsRPacks)
+source("1-code/0-helpers.R")
 
 workspace <- normalizePath("0-data/workspace_v11_gen")
 usms <- get_usms_list(file.path(workspace, "usms.xml"))
 output_path <- file.path("2-outputs", "usms_txt_intercrops")
 javastics_path <- "/Users/rvezy/Documents/dev/stics/JavaSTICS-v11.0.0-rc1"
-
-gen_usms_xml2txt(
-  # javastics = javastics_path,
-  workspace = workspace,
-  out_dir = output_path,
-  parallel = TRUE
-)
 
 sim_options <- stics_wrapper_options(
   javastics = javastics_path,
@@ -27,31 +21,39 @@ sim_options <- stics_wrapper_options(
   parallel = TRUE
 )
 
-sim_run <- stics_wrapper(
-  sim_options,
-  # param_values = NULL, # Update parameters from here directly, e.g. hauteur_threshold, or code_transrad?
-  # var = NULL,
-  # dates = NULL,
-  # situation = "usm_1"
+# Run Beer simulations:
+activate_light(workspace = workspace, algorithm = "Beer")
+gen_usms_xml2txt(
+  workspace = workspace,
+  out_dir = output_path,
+  parallel = TRUE
+)
+sim_run_beer <- stics_wrapper(sim_options)
+
+# Run 2.5D simulations:
+activate_light(workspace = workspace, algorithm = "2.5D")
+gen_usms_xml2txt(
+  workspace = workspace,
+  out_dir = output_path,
+  parallel = TRUE
 )
 
-beer_params <- c(codetransrad = 1, codetradtec = 2)
-radiative_transfer_params <- c(
-  codetransrad = 2, # This is for activating the radiative transfer model in STICS (Beer or 2.5D)
-  codetradtec = 1 # This is for activating the planting structure
-)
+sim_run_2.5D <- stics_wrapper(sim_options)
 
-sim_run_beer <- stics_wrapper(
-  sim_options,
-  param_values = beer_params,
+p <- plot(
+  Beer = sim_run_beer$sim_list,
+  "2.5D" = sim_run_2.5D$sim_list,
+  type = "dynamic",
+  all_situations = TRUE,
+  var = c(
+    "laimax",
+    "hauteur",
+    "somupvtsem",
+    "laisen_n",
+    "raint",
+    "trg_n"
+  )
 )
-
-sim_run_2.5D <- stics_wrapper(
-  sim_options,
-  param_values = radiative_transfer_params,
-)
-
-p <- plot(sim_run_beer$sim_list, type = "dynamic", all_situations = TRUE)
 p$usm_1
 
 sim_beer <- CroPlotR::bind_rows(sim_run_beer$sim_list)
