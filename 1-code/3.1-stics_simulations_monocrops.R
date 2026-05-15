@@ -8,6 +8,7 @@
 #   2. from plant file: leaf lifespan (lifespanF) and ratio of lifespan between juvenile stage and exponential phase (ratiodurvieI)
 
 library(SticsRPacks)
+library(ggplot2)
 
 workspace <- normalizePath("0-data/workspace_v11")
 usms <- get_usms_list(file.path(workspace, "usms.xml"))
@@ -72,28 +73,45 @@ gen_usms_xml2txt(
   parallel = TRUE,
   usm = c("sorghum_monocrop", "maize_BEOU_monocrop")
 )
-sim_run_beer <- stics_wrapper(
-  sim_options,
-  param_values = beer_params,
+sim_run_beer <- stics_wrapper(sim_options)
+
+# Run 2.5D simulations:
+activate_light(workspace = workspace, algorithm = "2.5D")
+gen_usms_xml2txt(
+  workspace = workspace,
+  out_dir = output_path,
+  parallel = TRUE,
+  usm = c("sorghum_monocrop", "maize_BEOU_monocrop")
 )
 
-sim_run_2.5D <- stics_wrapper(
-  sim_options,
-  param_values = radiative_transfer_params,
-)
+sim_run_2.5D <- stics_wrapper(sim_options)
 
 p <- plot(
   Beer = sim_run_beer$sim_list,
   "2.5D" = sim_run_2.5D$sim_list,
   type = "dynamic",
-  all_situations = TRUE
+  all_situations = TRUE,
+  var = c(
+    "laimax",
+    "hauteur",
+    "somupvtsem",
+    "laisen_n",
+    "raint",
+    "trg_n"
+  )
 )
 p[["maize_BEOU_monocrop"]]
 p[["sorghum_monocrop"]]
 
 ggsave(
-  p,
-  filename = file.path("2-outputs", "simulations_stics_monocrops.png"),
+  p[["maize_BEOU_monocrop"]],
+  filename = file.path("2-outputs", "simulations_stics_monocrops_maize.png"),
+  width = 12,
+  height = 6
+)
+ggsave(
+  p[["sorghum_monocrop"]],
+  filename = file.path("2-outputs", "simulations_stics_monocrops_sorghum.png"),
   width = 12,
   height = 6
 )
@@ -109,11 +127,11 @@ sim_all <- merge(sim_beer, sim_2.5D, all = TRUE)
 
 write.csv(
   sim_all,
-  file.path("2-outputs", "simulations_stics.csv"),
+  file.path("2-outputs", "simulations_stics_monocrops.csv"),
   row.names = FALSE
 )
 
 #! TODO:
-# 1. check the plant files parameters + tec files too
-# 2. Parameterize plant height ~ development for both maize and sorghum
+# 1. check why hauteur is impacted, we should have chosen the height~dev relationship so it shouldn't change
+# 2. Truly parameterize plant height ~ development for both maize and sorghum
 # 3. Check the outputs of the simulations
