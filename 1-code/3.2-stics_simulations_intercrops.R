@@ -29,6 +29,13 @@ gen_usms_xml2txt(
   parallel = TRUE
 )
 sim_run_beer <- stics_wrapper(sim_options)
+for (x in names(sim_run_beer$sim_list)) {
+  sim_run_beer$sim_list[[x]]$Plant <- ifelse(
+    sim_run_beer$sim_list[[x]]$pla == "sor",
+    "sorghum",
+    "maize"
+  )
+}
 
 # Run 2.5D simulations:
 activate_light(workspace = workspace, algorithm = "2.5D")
@@ -39,6 +46,13 @@ gen_usms_xml2txt(
 )
 
 sim_run_2.5D <- stics_wrapper(sim_options)
+for (x in names(sim_run_2.5D$sim_list)) {
+  sim_run_2.5D$sim_list[[x]]$Plant <- ifelse(
+    sim_run_2.5D$sim_list[[x]]$pla == "sor",
+    "sorghum",
+    "maize"
+  )
+}
 
 p <- plot(
   Beer = sim_run_beer$sim_list,
@@ -54,7 +68,16 @@ p <- plot(
     "trg_n"
   )
 )
+# p$usm_1
+# p$usm_2
+
 p$usm_1
+
+save_plot_png(
+  p,
+  out_dir = "2-outputs/plots_intercrop",
+  suffix = "_dynamic"
+)
 
 sim_beer <- CroPlotR::bind_rows(sim_run_beer$sim_list)
 sim_2.5D <- CroPlotR::bind_rows(sim_run_2.5D$sim_list)
@@ -67,11 +90,12 @@ sim_all <- merge(sim_beer, sim_2.5D, all = TRUE)
 
 write.csv(
   sim_all,
-  file.path("2-outputs", "simulations_stics.csv"),
+  file.path(
+    "2-outputs",
+    "intercrop_simulations_outputs",
+    "simulations_stics_intercrops.csv"
+  ),
   row.names = FALSE
 )
 
-#! TODO:
-# 1. check the plant files parameters + tec files too
-# 2. Parameterize plant height ~ development for both maize and sorghum
-# 3. Check the outputs of the simulations
+#! check the plant files parameters + tec files too

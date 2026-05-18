@@ -26,6 +26,7 @@ sim_options <- stics_wrapper_options(
 # Run Beer simulations:
 activate_light(workspace = workspace, algorithm = "Beer")
 gen_usms_xml2txt(
+  # javastics = javastics_path,
   workspace = workspace,
   out_dir = output_path,
   parallel = TRUE,
@@ -63,13 +64,21 @@ p[["sorghum_monocrop"]]
 
 ggsave(
   p[["maize_BEOU_monocrop"]],
-  filename = file.path("2-outputs", "simulations_stics_monocrops_maize.png"),
+  filename = file.path(
+    "2-outputs",
+    "plots_monocrop",
+    "simulations_stics_monocrops_maize.png"
+  ),
   width = 12,
   height = 6
 )
 ggsave(
   p[["sorghum_monocrop"]],
-  filename = file.path("2-outputs", "simulations_stics_monocrops_sorghum.png"),
+  filename = file.path(
+    "2-outputs",
+    "plots_monocrop",
+    "simulations_stics_monocrops_sorghum.png"
+  ),
   width = 12,
   height = 6
 )
@@ -88,8 +97,3 @@ write.csv(
   file.path("2-outputs", "simulations_stics_monocrops.csv"),
   row.names = FALSE
 )
-
-#! TODO:
-# 1. check why hauteur is impacted, we should have chosen the height~dev relationship so it shouldn't change
-# 2. Truly parameterize plant height ~ development for both maize and sorghum
-# 3. Check the outputs of the simulations
