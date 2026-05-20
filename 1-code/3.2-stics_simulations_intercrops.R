@@ -23,6 +23,7 @@ sim_options <- stics_wrapper_options(
 
 # Run Beer simulations:
 activate_light(workspace = workspace, algorithm = "Beer")
+file.remove(list.files(output_path, full.names = TRUE, recursive = TRUE))
 gen_usms_xml2txt(
   workspace = workspace,
   out_dir = output_path,
@@ -39,6 +40,7 @@ for (x in names(sim_run_beer$sim_list)) {
 
 # Run 2.5D simulations:
 activate_light(workspace = workspace, algorithm = "2.5D")
+file.remove(list.files(output_path, full.names = TRUE, recursive = TRUE))
 gen_usms_xml2txt(
   workspace = workspace,
   out_dir = output_path,
@@ -71,7 +73,7 @@ p <- plot(
 # p$usm_1
 # p$usm_2
 
-p$usm_1
+p$usm_7
 
 save_plot_png(
   p,
@@ -92,7 +94,6 @@ write.csv(
   sim_all,
   file.path(
     "2-outputs",
-    "intercrop_simulations_outputs",
     "simulations_stics_intercrops.csv"
   ),
   row.names = FALSE
