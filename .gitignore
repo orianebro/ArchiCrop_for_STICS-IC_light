@@ -53,3 +53,6 @@ rsconnect/
 2-outputs/usms_txt
 2-outputs/usms_txt_monocrops
 2-outputs/usms_txt_intercrops
+2-outputs/plots_intercrop/
+2-outputs/plots_monocrop/simulations_stics_monocrops_maize.png
+2-outputs/plots_monocrop/simulations_stics_monocrops_sorghum.png
