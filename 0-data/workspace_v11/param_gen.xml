@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <fichierpar version="11.0">
 <formalisme nom="Simulation options">
-    <option choix="1" nom="Nitrogen stress activation" nomParam="codeinnact">
+    <option choix="2" nom="Nitrogen stress activation" nomParam="codeinnact">
         <choix code="1" nom="yes"/>
             <choix code="2" nom="no"/>
         </option>
-        <option choix="1" nom="Water stress activation" nomParam="codeh2oact">
+        <option choix="2" nom="Water stress activation" nomParam="codeh2oact">
         <choix code="1" nom="yes"/>
             <choix code="2" nom="no"/>
         </option>
