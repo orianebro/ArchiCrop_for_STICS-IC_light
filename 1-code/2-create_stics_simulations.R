@@ -243,7 +243,7 @@ dir.create(file.path(generated_workspace, "plant"), showWarnings = FALSE)
 
 plt_files <- c(
   sorghum = "sorgho_trop_plt.xml",
-  maize = "corn_LI_step2_MANT_plt.xml"
+  maize_trop = "corn_LI_step2_MANT_plt.xml"
 )
 
 file.copy(
