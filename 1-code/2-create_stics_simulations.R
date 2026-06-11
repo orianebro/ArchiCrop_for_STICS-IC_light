@@ -17,14 +17,24 @@ row_orientation_values <- c(
 
 interrow_distance_per_species <- list(
   "sorghum" = c(
-    "high" = 0.8,
-    "middle" = 0.4,
-    "low" = 0.2
+    "high" = 0.9,
+    "middle" = 0.6,
+    "low" = 0.3
   ),
-  "maize" = c(
-    "high" = 0.8,
-    "middle" = 0.4,
-    "low" = 0.2
+  "maize_trop" = c(
+    "high" = 0.9,
+    "middle" = 0.6,
+    "low" = 0.3
+  ),
+  "maize_temp" = c(
+    "high" = 0.9,
+    "middle" = 0.6,
+    "low" = 0.3
+  ),
+  "wheat" = c(
+    "high" = 0.4,
+    "middle" = 0.2,
+    "low" = 0.1
   )
 )
 
@@ -35,24 +45,46 @@ n_rows_per_species <- list(
     "middle" = 4,
     "low" = 2
   ),
-  "maize" = c(
+  "maize_trop" = c(
     "one" = 1,
     "high" = 6,
     "middle" = 4,
+    "low" = 2
+  ),
+  "maize_temp" = c(
+    "one" = 1,
+    "high" = 6,
+    "middle" = 4,
+    "low" = 2
+  ),
+  "wheat" = c(
+    "one" = 1,
+    "high" = 12,
+    "middle" = 6,
     "low" = 2
   )
 )
 
 intrarow_distance_per_species <- list(
   "sorghum" = c(
-    "high" = 0.8,
-    "middle" = 0.4, # ~6 plants per m2 with 0.4m interrow distance, gives 0.41m intrarow distance
+    "high" = 0.4,
+    "middle" = 0.3, # ~5.5 plants per m2 with 0.6m interrow distance, gives 0.3m intrarow distance
     "low" = 0.2
   ),
-  "maize" = c(
-    "high" = 0.8,
-    "middle" = 0.4,
+  "maize_trop" = c(
+    "high" = 0.4,
+    "middle" = 0.3,
     "low" = 0.2
+  ),
+  "maize_temp" = c(
+    "high" = 0.4,
+    "middle" = 0.3,
+    "low" = 0.2
+  ),
+  "wheat" = c(
+    "high" = 0.1,
+    "middle" = 0.07,
+    "low" = 0.04
   )
 )
 
@@ -63,13 +95,17 @@ sowing_delay <- c("same" = 0, "later" = 20)
 
 variety_code_per_species <- c(
   sorghum = 1, # We only have one variety
-  maize = 17 # BEOU, from the tec file we are using as reference
+  maize_trop = 20, # MANT, from the tec file we are using as reference
+  maize_temp = 4,
+  wheat = 1
 )
 
 # Reference tec files from the sole crops:
 tec_ref <- c(
   sorghum = file.path("0-data", "workspace_v11", "02NT18SorgV2D1_tec.xml"),
-  maize = file.path("0-data", "workspace_v11", "maize_monocrop_tec.xml")
+  maize_trop = file.path("0-data", "workspace_v11", "maize_monocrop_tec.xml"),
+  maize_temp = file.path("0-data", "workspace_v11", "maize_monocrop_tec.xml"),
+  wheat = file.path("0-data", "workspace_v11", "wheat_monocrop_tec.xml")
 )
 
 #! start loop over the rows of the design of experiment here
@@ -125,7 +161,7 @@ for (doe_row in 1:nrow(df_doe)) {
     SticsRFiles::set_param_xml(
       new_tec_file,
       "variete",
-      variety_code_per_species[i], # BEOU
+      variety_code_per_species[i], # MANT
       overwrite = TRUE
     )
 
@@ -207,7 +243,7 @@ dir.create(file.path(generated_workspace, "plant"), showWarnings = FALSE)
 
 plt_files <- c(
   sorghum = "sorgho_trop_plt.xml",
-  maize = "corn_LI_step2_BEOU_plt.xml"
+  maize = "corn_LI_step2_MANT_plt.xml"
 )
 
 file.copy(
@@ -217,8 +253,8 @@ file.copy(
 )
 
 file.copy(
-  file.path(original_workspace, "plant", plt_files["maize"]),
-  file.path(generated_workspace, "plant", plt_files["maize"]),
+  file.path(original_workspace, "plant", plt_files["maize_trop"]),
+  file.path(generated_workspace, "plant", plt_files["maize_trop"]),
   overwrite = TRUE
 )
 
