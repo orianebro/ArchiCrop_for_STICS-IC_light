@@ -9,3 +9,4 @@ iamfs
 ilaxs
 densite
 demande
+lai(n)
