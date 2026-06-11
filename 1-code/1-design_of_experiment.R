@@ -3,7 +3,7 @@
 # 1. Table with: species simulated (principal and secondary), design name (sole crop, intercrop mixed, intercrop alternate, intercrop strips), row orientation, interrow distance, sowing date for latest crop,
 # 2. Table for mapping true vs stics interrow designs; because stics make some simplifications and defines interrow as inter-same species (see vezy et al. (2023) fig. 2)
 
-species <- c("sorghum", "maize")
+species <- c("sorghum", "maize_trop")
 designs <- c(
   # "sole crop",
   "intercrop mixed",
