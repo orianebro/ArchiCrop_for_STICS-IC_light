@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<usms version="11.0.0">
+    <usm nom="sorghum_monocrop">
+        <datedebut>135</datedebut>
+        <datefin>365</datefin>
+        <finit>02NT18SorgV2D1_ini.xml</finit>
+        <nomsol>02V2D1</nomsol>
+        <fstation>StationNtarla_sta.xml</fstation>
+        <fclim1>ntarla_corr.2018</fclim1>
+        <fclim2>ntarla_corr.2018</fclim2>
+        <culturean>1</culturean>
+        <nbplantes>1</nbplantes>
+        <codesimul>0</codesimul>
+        <plante dominance="1">
+            <fplt>sorgho_trop_plt.xml</fplt>
+            <ftec>02NT18SorgV2D1_tec.xml</ftec>
+            <flai>null</flai>
+            <fobs>02NT18SorgV2D1.obs</fobs>
+        </plante>
+        <plante dominance="2">
+            <fplt>null</fplt>
+            <ftec>null</ftec>
+            <flai>null</flai>
+            <fobs>null</fobs>
+        </plante>
+    </usm>
+    <usm nom="maize_BEOU_monocrop">
+        <datedebut>135</datedebut>
+        <datefin>365</datefin>
+        <finit>02NT18SorgV2D1_ini.xml</finit>
+        <nomsol>02V2D1</nomsol>
+        <fstation>StationNtarla_sta.xml</fstation>
+        <fclim1>ntarla_corr.2018</fclim1>
+        <fclim2>ntarla_corr.2018</fclim2>
+        <culturean>1</culturean>
+        <nbplantes>1</nbplantes>
+        <codesimul>0</codesimul>
+        <plante dominance="1">
+            <fplt>corn_LI_step2_BEOU_plt.xml</fplt>
+            <ftec>maize_trop_tec.xml</ftec>
+            <flai>null</flai>
+            <fobs>null</fobs>
+        </plante>
+        <plante dominance="2">
+            <fplt>null</fplt>
+            <ftec>null</ftec>
+            <flai>null</flai>
+            <fobs>null</fobs>
+        </plante>
+    </usm>
+</usms>
