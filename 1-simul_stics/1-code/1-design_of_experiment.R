@@ -75,7 +75,7 @@ for (i in designs) {
       }
     }
   } else if (i == "intercrop mixed") {
-    for (k in intrarow_distance) {
+    for (k in interrow_distance) {
       df_doe <- rbind(
         df_doe,
         data.frame(
@@ -84,11 +84,11 @@ for (i in designs) {
           species_secondary = species[2],
           design = i,
           row_orientation = "N-S", # This is not relevant for the mixed design, but we need to put something for stics
-          interrow_distance_principal = "middle",
-          interrow_distance_secondary = "middle",
+          interrow_distance_principal = k,
+          interrow_distance_secondary = k,
           n_rows_principal = "one", # this is 1 row, no strip
           n_rows_secondary = "one", # this is 1 row, no strip
-          intrarow_distance = k,
+          intrarow_distance = "middle",
           sowing_date_latest_crop = "same" # This is not relevant for the mixed design, but we need to put something for stics
         )
       )

@@ -163,7 +163,7 @@ if __name__ == '__main__':
                     # "sowing_delay" : 1 if spat_conf["sowing_date_latest_crop"] == "later" else 0
                 }
 
-    domain_file = "../../3-visu_archicrop/0-data/domains.csv"
+    domain_file = "../../3-3D_light_inter/0-data/domains.csv"
     header = ["usms", "x_first_corner", "y_first_corner", "x_last_corner", "y_last_corner"]
     rows = []
 
@@ -185,7 +185,7 @@ if __name__ == '__main__':
     with Pool(n_cpu) as p:
         start_time = t.time()
         p.starmap_async(run_archicrop_parallel_IC, 
-                        [({usm:param_sets[usm]}, {usm:d_outputs[usm]}, {usm:doe_adapt[usm]}, Path('../../3-visu_archicrop/0-data/mtg_obj'), save_scenes) 
+                        [({usm:param_sets[usm]}, {usm:d_outputs[usm]}, {usm:doe_adapt[usm]}, Path('../../3-3D_light_inter/0-data/mtg_obj'), save_scenes) 
                         for i,usm in enumerate(id_usm)]).get()
         end_time = t.time()
         elapsed_time = (end_time - start_time)/3600
