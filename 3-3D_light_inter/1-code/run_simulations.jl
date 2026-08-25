@@ -130,9 +130,17 @@ models = models_for(
 workspace = "0-data/mtg_obj" # where the input files are stored (.obj and .mtg files)
 
 
-function run_usm(scenes, options, meteo, models; sowing_day=177, output_path=nothing)
+function run_usm(scenes, dates, options, meteo, models; output_path=nothing)
     x_min, y_min, x_max, y_max = scenes[1].scene_xy_bounds
-    meteo_growth = meteo[sowing_day:(sowing_day+length(scenes)-1)]
+    # Build a lookup from Date -> meteo row and pick the rows matching the provided dates
+    meteo_map = Dict(r.date => r for r in meteo)
+    meteo_growth = Vector{eltype(meteo)}(undef, length(dates))
+    for (i, d) in enumerate(dates)
+        if !haskey(meteo_map, d)
+            error("No meteo data for date $(d). Ensure weather file contains this date.")
+        end
+        meteo_growth[i] = meteo_map[d]
+    end
 
     # Run the simulations:
     series = Vector{ArchimedLight.LightStepResult}(undef, length(scenes))
@@ -178,8 +186,9 @@ function run_usm(scenes, options, meteo, models; sowing_day=177, output_path=not
         :value => sum => :apar_sum
     )
     sort!(df_apar_combined, [:step_number, :group, :object_id])
-    df_meteo = DataFrames.select(DataFrame(meteo_growth), [:Ri_PAR_f, :duration] => ((x, y) -> x .* y .* scene_area) => :Ri_PAR_q)
-    df_meteo.step_number = 1:length(meteo_growth)
+    # Compute incoming PAR energy for each matched meteo row and attach the simulation date
+    Ri_PAR_q = [row.Ri_PAR_f * row.duration * scene_area for row in meteo_growth]
+    df_meteo = DataFrame(step_number = 1:length(meteo_growth), date = dates, Ri_PAR_q = Ri_PAR_q)
     joined_df = leftjoin(df_apar_combined, df_meteo, on=:step_number)
     joined_df.fapar = joined_df.apar_sum ./ joined_df.Ri_PAR_q
 
@@ -210,8 +219,8 @@ all_time = @elapsed let
         algo = first(gp.algo)
         sim_time = @elapsed begin
             run_usm(
-                gp[:, 4], options, meteo, models;
-                sowing_day=177, output_path="2-results/simulations/fapar_usm_$(usm)_$(algo).csv"
+                gp[:, 4], gp[:, 3], options, meteo, models;
+                output_path="2-results/simulations/fapar_usm_$(usm)_$(algo).csv"
             )
         end
         println("Simulation for usm $(usm), algo $(algo) took $(sim_time) seconds.")
@@ -225,8 +234,8 @@ algo = "Beer"
 usm = 14
 df_gp_usm = filter(row -> row.usm == usm && row.algo == algo, df_gp)
 @time series, joined_df = run_usm(
-    df_gp_usm[:, 4], options, meteo, models;
-    sowing_day=177, output_path="2-results/simulations/fapar_usm_$(usm)_$(algo).csv"
+    df_gp_usm[:, 4], df_gp_usm[:, 3], options, meteo, models;
+    output_path="2-results/simulations/fapar_usm_$(usm)_$(algo).csv"
 )
 
 df = CSV.read(readdir("2-results/simulations", join=true), DataFrame, source=:filename)
