@@ -3,12 +3,12 @@ from __future__ import annotations
 archi_maize = {
     "species": "maize",
 
-    "nb_phy": [20,22,24], # number of phytomers on the main stem
+    "nb_phy": [18,20,22,24], # number of phytomers on the main stem
     "nb_short_phy": 5,
     "short_phy_len": 3,
     
     # Stem
-    "height": 250,
+    "height": 175,
     "stem_q": 1, # parameter for ligule height geometric distribution along axis
     "diam_base": 5.0, # stem base diameter cm
     "diam_top": 1.5, # stem top diameter cm
@@ -26,9 +26,9 @@ archi_maize = {
     "f2": 0.92, # parameter for leaf blade shape
 
     # blade curvature
-    "insertion_angle": 45, # leaf blade insertion angle
-    "scurv": 0.6, #  relative position of inflexion point
-    "curvature": 120, # leaf blade insertion-to-tip angle
+    "insertion_angle": 60, # leaf blade insertion angle
+    "scurv": 0.5, #  relative position of inflexion point
+    "curvature": 90, # leaf blade insertion-to-tip angle
     "phyllotactic_angle": 180, # phyllotactic angle
     "phyllotactic_deviation": 20, # half-deviation to phyllotactic angle
 
@@ -144,12 +144,12 @@ archi_rice = {
 archi_sorghum = {
     "species": "sorghum",
 
-    "nb_phy": [16,18,20,22,24], # number of phytomers on the main stem : [10,40] (Ndiaye et al., 2021; Lafarge and Tardieu, 2002; Clerget, 2008; Ganeme et al., 2022)
+    "nb_phy": [20,22,24], # number of phytomers on the main stem : [10,40] (Ndiaye et al., 2021; Lafarge and Tardieu, 2002; Clerget, 2008; Ganeme et al., 2022)
     "nb_short_phy": 5,
     "short_phy_len": 3,
 
     # Stem
-    "height": 200,
+    "height": 250,
     "stem_q": 1, # parameter for ligule height distribution along axis : [1.1] (Kaitaniemi et al., 1999) 
     "diam_base": 4.0, # stem base diameter : [2.2] (Ndiaye et al., 2021)
     "diam_top": 1.5, # stem top diameter: [1.2] (Ndiaye et al., 2021)
@@ -168,8 +168,8 @@ archi_sorghum = {
 
     # Leaf blade position in space
     "insertion_angle": 60, # leaf blade insertion angle : [10,50] (Truong et al., 2015; Kaitaniemi et al., 1999)
-    "scurv": 0.4, # leaf blade relative inflexion point : [0.6, 0.8] ()
-    "curvature": 90, # leaf blade insertion-to-tip angle : [0,130] [45, 135] (Kaitaniemi et al., 1999)
+    "scurv": 0.5, # leaf blade relative inflexion point : [0.6, 0.8] ()
+    "curvature": 120, # leaf blade insertion-to-tip angle : [0,130] [45, 135] (Kaitaniemi et al., 1999)
     "phyllotactic_angle": 180, # phyllotactic angle : [180] (Davis et al., 2024)
     "phyllotactic_deviation": 20, # half-deviation to phyllotactic angle : [0,90] (Davis et al., 2024)
 

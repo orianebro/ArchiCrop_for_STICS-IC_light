@@ -81,7 +81,7 @@ sowing_delay <- c("same" = 0, "later" = 20)
 
 variety_code_per_species <- c(
   sorghum = 1, # We only have one variety
-  maize_trop = 20, # MANT, from the tec file we are using as reference
+  maize_trop = 17, # BEOU, from the tec file we are using as reference
   maize_temp = 4,
   wheat = 1
 )
@@ -228,7 +228,7 @@ dir.create(file.path(generated_workspace, "plant"), showWarnings = FALSE)
 
 plt_files <- c(
   sorghum = "sorgho_trop_plt.xml",
-  maize_trop = "corn_LI_step2_MANT_plt.xml"
+  maize_trop = "corn_LI_step2_BEOU_plt.xml"
 )
 
 file.copy(
