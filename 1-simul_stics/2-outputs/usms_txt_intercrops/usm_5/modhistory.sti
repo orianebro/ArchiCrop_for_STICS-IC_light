@@ -1,6 +1,6 @@
  -----------------------------------------------------------------------------------------
- Stics history file Creation date: 2026/05/20-15:55:37
- STICS Version: v11.0.0-rc1_2026-02-03                            
+ Stics history file Creation date: 2026/09/04-11:03:08
+ STICS Version: d47aab032_2026-07-20                              
  -----------------------------------------------------------------------------------------
  
  
@@ -129,15 +129,6 @@
  P_orientrang    0.00000000    
  P_code_strip            2
  P_nrow            1
- P_ilev          181
- P_iamf          999
- P_ilax          999
- P_iflo          999
- P_idrp          999
- P_imat          999
- P_isen          999
- P_irec          999
- P_ilan          999
  P_effirr    1.00000000    
  nap            0
  P_codlocirrig            1
@@ -355,15 +346,6 @@
  P_orientrang    0.00000000    
  P_code_strip            2
  P_nrow            1
- P_ilev          181
- P_iamf          999
- P_ilax          999
- P_iflo          999
- P_idrp          999
- P_imat          999
- P_isen          999
- P_irec          999
- P_ilan          999
  P_effirr    1.00000000    
  nap            0
  P_codlocirrig            1
@@ -450,7 +432,7 @@
  P_coefmshaut    0.00000000    
  slamin    180.000000    
  P_envfruit   0.100000001    
- P_sea    100.000000    
+ P_sea    0.00000000    
  P_code_acti_reserve           2
  growing dynamics = determinate growing plant
  P_cgrain    5.00000007E-02
@@ -522,7 +504,7 @@
  P_adens  -0.119999997    
  P_bdens    5.00000000    
  P_hautbase    0.00000000    
- P_hautmax    2.50000000    
+ P_hautmax    1.75000000    
  P_khaut  0.699999988    
  P_durvieF    140.000000    
  P_dlaimaxbrut    1.90000003E-03
@@ -635,27 +617,18 @@
  INN0 :    0.00000000       0.00000000       0.00000000    
  Attention humcapil  > hcc : risk of excess water
  Depth of measurement (profmes) > soil depth (profsol). Then profmes = profsol =         155
- For intercrop radiation interception is done with radiation transfer
  Depth of measurement (profmes) > soil depth (profsol). Then profmes = profsol =         155
- For intercrop radiation interception is done with radiation transfer
  Warning: Profile variables file doesn't exist: [prof.mod]
  Initial values over the soil depth (155 cm):     SWC = 197. mm     SMN =  8.0 kg N/ha
- the crop cannot begin growing : soil surface too dry
- attention: there are no longer any effective roots, on day :          47
  attention: there are no longer any effective roots, on day :          47
  attention: there are no longer any effective roots, on day :          48
- the crop cannot begin growing : soil surface too dry
- attention: there are no longer any effective roots, on day :          48
- attention: there are no longer any effective roots, on day :          49
- the crop cannot begin growing : soil surface too dry
  attention: there are no longer any effective roots, on day :          49
  attention: there are no longer any effective roots, on day :          50
- the crop cannot begin growing : soil surface too dry
- attention: there are no longer any effective roots, on day :          50
- crop height A > crop height P         133
- crop height A > crop height P         134
- crop height A > crop height P         134
+ attention: there are no longer any effective roots, on day :          51
+ crop height A > crop height P          53
+ crop height A > crop height P          54
+ crop height A > crop height P         118
  Program end ... 
  -----------------------------------------------------------------------------------------
- Stics history file end End date: 2026/05/20-15:55:37
+ Stics history file end End date: 2026/09/04-11:03:09
  -----------------------------------------------------------------------------------------

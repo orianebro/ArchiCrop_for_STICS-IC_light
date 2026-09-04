@@ -161,9 +161,9 @@ nw_height
 code_shape
 2
 haut_dev_x0
-645.895914862214
+750
 haut_dev_k
-0.0105505841187171
+0.01
 codetransrad
 2
 forme
@@ -195,7 +195,7 @@ slamin
 envfruit
 0.10000
 sea
-100.00000
+0.00000
 code_acti_reserve
 2
 propresP
@@ -531,7 +531,7 @@ bdens
 hautbase
 0
 hautmax
-2.5
+1.75
 khaut
 0.7
 durvieF
@@ -2227,7 +2227,7 @@ bdens
 hautbase
 0
 hautmax
-2.5
+1.75
 khaut
 0.7
 durvieF
@@ -2333,7 +2333,7 @@ bdens
 hautbase
 0
 hautmax
-2.5
+1.75
 khaut
 0.7
 durvieF
@@ -2439,7 +2439,7 @@ bdens
 hautbase
 0
 hautmax
-2.5
+1.75
 khaut
 0.7
 durvieF
@@ -2545,7 +2545,7 @@ bdens
 hautbase
 0
 hautmax
-2.5
+1.75
 khaut
 0.7
 durvieF

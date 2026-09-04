@@ -1,6 +1,6 @@
  -----------------------------------------------------------------------------------------
- Stics history file Creation date: 2026/05/20-15:55:36
- STICS Version: v11.0.0-rc1_2026-02-03                            
+ Stics history file Creation date: 2026/09/04-11:03:08
+ STICS Version: d47aab032_2026-07-20                              
  -----------------------------------------------------------------------------------------
  
  
@@ -129,15 +129,6 @@
  P_orientrang    1.57079637    
  P_code_strip            1
  P_nrow            6
- P_ilev          181
- P_iamf          999
- P_ilax          999
- P_iflo          999
- P_idrp          999
- P_imat          999
- P_isen          999
- P_irec          999
- P_ilan          999
  P_effirr    1.00000000    
  nap            0
  P_codlocirrig            1
@@ -355,15 +346,6 @@
  P_orientrang    1.57079637    
  P_code_strip            1
  P_nrow            2
- P_ilev          181
- P_iamf          999
- P_ilax          999
- P_iflo          999
- P_idrp          999
- P_imat          999
- P_isen          999
- P_irec          999
- P_ilan          999
  P_effirr    1.00000000    
  nap            0
  P_codlocirrig            1
@@ -450,7 +432,7 @@
  P_coefmshaut    0.00000000    
  slamin    180.000000    
  P_envfruit   0.100000001    
- P_sea    100.000000    
+ P_sea    0.00000000    
  P_code_acti_reserve           2
  growing dynamics = determinate growing plant
  P_cgrain    5.00000007E-02
@@ -522,7 +504,7 @@
  P_adens  -0.119999997    
  P_bdens    5.00000000    
  P_hautbase    0.00000000    
- P_hautmax    2.50000000    
+ P_hautmax    1.75000000    
  P_khaut  0.699999988    
  P_durvieF    140.000000    
  P_dlaimaxbrut    1.90000003E-03
@@ -635,123 +617,41 @@
  INN0 :    0.00000000       0.00000000       0.00000000    
  Attention humcapil  > hcc : risk of excess water
  Depth of measurement (profmes) > soil depth (profsol). Then profmes = profsol =         155
- For intercrop radiation interception is done with radiation transfer
  Depth of measurement (profmes) > soil depth (profsol). Then profmes = profsol =         155
- For intercrop radiation interception is done with radiation transfer
  Warning: Profile variables file doesn't exist: [prof.mod]
  Initial values over the soil depth (155 cm):     SWC = 197. mm     SMN =  8.0 kg N/ha
- the crop cannot begin growing : soil surface too dry
- attention: there are no longer any effective roots, on day :          47
- the crop cannot begin growing : soil surface too dry
- attention: there are no longer any effective roots, on day :          48
- the crop cannot begin growing : soil surface too dry
- attention: there are no longer any effective roots, on day :          49
- the crop cannot begin growing : soil surface too dry
- attention: there are no longer any effective roots, on day :          50
  attention: there are no longer any effective roots, on day :          66
  attention: there are no longer any effective roots, on day :          67
- attention: there are no longer any effective roots, on day :          68
- attention: there are no longer any effective roots, on day :          69
- attention: there are no longer any effective roots, on day :          70
- attention: there are no longer any effective roots, on day :          71
- attention: there are no longer any effective roots, on day :          72
- attention: there are no longer any effective roots, on day :          73
- attention: there are no longer any effective roots, on day :          74
- attention: there are no longer any effective roots, on day :          75
- attention: there are no longer any effective roots, on day :          76
- attention: there are no longer any effective roots, on day :          77
- attention: there are no longer any effective roots, on day :          78
- attention: there are no longer any effective roots, on day :          79
- attention: there are no longer any effective roots, on day :          80
- attention: there are no longer any effective roots, on day :          81
- attention: there are no longer any effective roots, on day :          82
- attention: there are no longer any effective roots, on day :          83
- attention: there are no longer any effective roots, on day :          84
- attention: there are no longer any effective roots, on day :          85
- attention: there are no longer any effective roots, on day :          86
- attention: there are no longer any effective roots, on day :          87
- attention: there are no longer any effective roots, on day :          88
- attention: there are no longer any effective roots, on day :          89
- attention: there are no longer any effective roots, on day :          90
- attention: there are no longer any effective roots, on day :          91
- attention: there are no longer any effective roots, on day :          92
- attention: there are no longer any effective roots, on day :          93
- attention: there are no longer any effective roots, on day :          94
- attention: there are no longer any effective roots, on day :          95
- attention: there are no longer any effective roots, on day :          96
- attention: there are no longer any effective roots, on day :          97
- attention: there are no longer any effective roots, on day :          98
- attention: there are no longer any effective roots, on day :          99
- attention: there are no longer any effective roots, on day :         100
- attention: there are no longer any effective roots, on day :         101
- attention: there are no longer any effective roots, on day :         102
- attention: there are no longer any effective roots, on day :         103
- attention: there are no longer any effective roots, on day :         104
- attention: there are no longer any effective roots, on day :         105
- attention: there are no longer any effective roots, on day :         106
- attention: there are no longer any effective roots, on day :         107
- attention: there are no longer any effective roots, on day :         108
- attention: there are no longer any effective roots, on day :         109
- attention: there are no longer any effective roots, on day :         110
- attention: there are no longer any effective roots, on day :         111
- attention: there are no longer any effective roots, on day :         112
- attention: there are no longer any effective roots, on day :         113
- attention: there are no longer any effective roots, on day :         114
- attention: there are no longer any effective roots, on day :         115
- attention: there are no longer any effective roots, on day :         116
- attention: there are no longer any effective roots, on day :         117
- attention: there are no longer any effective roots, on day :         118
- attention: there are no longer any effective roots, on day :         119
- attention: there are no longer any effective roots, on day :         120
- attention: there are no longer any effective roots, on day :         121
- attention: there are no longer any effective roots, on day :         122
- attention: there are no longer any effective roots, on day :         123
- attention: there are no longer any effective roots, on day :         124
- attention: there are no longer any effective roots, on day :         125
- attention: there are no longer any effective roots, on day :         126
- attention: there are no longer any effective roots, on day :         127
- attention: there are no longer any effective roots, on day :         128
- attention: there are no longer any effective roots, on day :         129
- attention: there are no longer any effective roots, on day :         130
- attention: there are no longer any effective roots, on day :         131
- attention: there are no longer any effective roots, on day :         132
- attention: there are no longer any effective roots, on day :         133
- attention: there are no longer any effective roots, on day :         134
- attention: there are no longer any effective roots, on day :         135
- attention: there are no longer any effective roots, on day :         136
- attention: there are no longer any effective roots, on day :         137
- attention: there are no longer any effective roots, on day :         138
- attention: there are no longer any effective roots, on day :         139
- attention: there are no longer any effective roots, on day :         140
- attention: there are no longer any effective roots, on day :         141
- attention: there are no longer any effective roots, on day :         142
- attention: there are no longer any effective roots, on day :         143
- attention: there are no longer any effective roots, on day :         144
- attention: there are no longer any effective roots, on day :         145
- attention: there are no longer any effective roots, on day :         146
- attention: there are no longer any effective roots, on day :         147
- attention: there are no longer any effective roots, on day :         148
- attention: there are no longer any effective roots, on day :         149
- attention: there are no longer any effective roots, on day :         150
- attention: there are no longer any effective roots, on day :         151
- attention: there are no longer any effective roots, on day :         152
- attention: there are no longer any effective roots, on day :         153
- attention: there are no longer any effective roots, on day :         154
- attention: there are no longer any effective roots, on day :         155
- attention: there are no longer any effective roots, on day :         156
- attention: there are no longer any effective roots, on day :         157
- attention: there are no longer any effective roots, on day :         158
- attention: there are no longer any effective roots, on day :         159
- attention: there are no longer any effective roots, on day :         160
- attention: there are no longer any effective roots, on day :         161
- attention: there are no longer any effective roots, on day :         162
- attention: there are no longer any effective roots, on day :         163
- attention: there are no longer any effective roots, on day :         164
- attention: there are no longer any effective roots, on day :         165
- attention: there are no longer any effective roots, on day :         166
- attention: there are no longer any effective roots, on day :         167
- attention: there are no longer any effective roots, on day :         168
+ crop height A > crop height P          90
+ main crop planting is after associated crop planting
+ main crop planting is after associated crop planting
+ main crop planting is after associated crop planting
+ main crop planting is after associated crop planting
+ main crop planting is after associated crop planting
+ main crop planting is after associated crop planting
+ main crop planting is after associated crop planting
+ main crop planting is after associated crop planting
+ main crop planting is after associated crop planting
+ main crop planting is after associated crop planting
+ main crop planting is after associated crop planting
+ main crop planting is after associated crop planting
+ main crop planting is after associated crop planting
+ main crop planting is after associated crop planting
+ main crop planting is after associated crop planting
+ main crop planting is after associated crop planting
+ main crop planting is after associated crop planting
+ main crop planting is after associated crop planting
+ main crop planting is after associated crop planting
+ main crop planting is after associated crop planting
+ main crop planting is after associated crop planting
+ main crop planting is after associated crop planting
+ main crop planting is after associated crop planting
+ main crop planting is after associated crop planting
+ main crop planting is after associated crop planting
+ main crop planting is after associated crop planting
+ main crop planting is after associated crop planting
+ crop height A > crop height P         117
  Program end ... 
  -----------------------------------------------------------------------------------------
- Stics history file end End date: 2026/05/20-15:55:36
+ Stics history file end End date: 2026/09/04-11:03:08
  -----------------------------------------------------------------------------------------
