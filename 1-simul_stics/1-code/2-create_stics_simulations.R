@@ -27,10 +27,10 @@ interrow_distance_per_species <- list(
     "low" = 0.2
   ),
   "maize_temp" = c(
-    "middle" = 0.75,
+    "middle" = 0.75
   ),
   "wheat" = c(
-    "middle" = 0.125,
+    "middle" = 0.125
   )
 )
 
@@ -61,16 +61,16 @@ n_rows_per_species <- list(
 
 intrarow_distance_per_species <- list(
   "sorghum" = c(
-    "middle" = 0.4, 
+    "middle" = 0.4
   ),
   "maize_trop" = c(
-    "middle" = 0.4,
+    "middle" = 0.4
   ),
   "maize_temp" = c(
-    "middle" = 0.222,
+    "middle" = 0.222
   ),
   "wheat" = c(
-    "middle" = 0.074,
+    "middle" = 0.074
   )
 )
 
@@ -90,13 +90,12 @@ variety_code_per_species <- c(
 tec_ref <- c(
   sorghum = file.path("0-data", "workspace_v11", "02NT18SorgV2D1_tec.xml"),
   maize_trop = file.path("0-data", "workspace_v11", "maize_monocrop_tec.xml")
-
 )
 
 #! start loop over the rows of the design of experiment here
 for (doe_row in 1:nrow(df_doe)) {
   # doe_row <- 1
-  sim = df_doe[doe_row, ] # This is just to test the code on one row of the design of experiment, we will then loop over all rows
+  sim <- df_doe[doe_row, ] # This is just to test the code on one row of the design of experiment, we will then loop over all rows
 
   row_orientation <- row_orientation_values[sim$row_orientation]
   design <- sim$design
