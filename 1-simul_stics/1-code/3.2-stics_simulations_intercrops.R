@@ -13,7 +13,7 @@ source("1-code/0-helpers.R")
 workspace <- normalizePath("0-data/workspace_v11_gen")
 usms <- get_usms_list(file.path(workspace, "usms.xml"))
 output_path <- file.path("2-outputs", "usms_txt_intercrops")
-javastics_path <- "C:/Users/cheriere/JavaSTICS/JavaSTICS-v11.0.0-rc1"
+javastics_path <- "/Users/rvezy/Documents/dev/stics/JavaSTICS-v11.0.0-rc2"
 
 sim_options <- stics_wrapper_options(
   javastics = javastics_path,

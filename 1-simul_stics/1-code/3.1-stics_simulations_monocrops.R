@@ -14,7 +14,7 @@ source("1-code/0-helpers.R")
 workspace <- normalizePath("0-data/workspace_v11")
 usms <- get_usms_list(file.path(workspace, "usms.xml"))
 output_path <- file.path("2-outputs", "usms_txt_monocrops")
-javastics_path <- "/Users/rvezy/Documents/dev/stics/JavaSTICS-v11.0.0-rc1"
+javastics_path <- "/Users/rvezy/Documents/dev/stics/JavaSTICS-v11.0.0-rc2"
 
 # usms <- SticsRFiles::get_usms_list(file.path(workspace, "usms.xml"))
 sim_options <- stics_wrapper_options(
