@@ -163,13 +163,13 @@
     <option choix="2" nom="LAI or phasic development relationship" nomParam="code_shape">
       <choix code="1" nom="LAI"/>
       <choix code="2" nom="Development">
-        <param format="real" max="5000.0" min="0.0" nom="haut_dev_x0">645.895914862214</param>
-        <param format="real" max="0.05" min="0.0" nom="haut_dev_k">0.0105505841187171</param>
+        <param format="real" max="5000.0" min="0.0" nom="haut_dev_x0">750</param>
+        <param format="real" max="0.05" min="0.0" nom="haut_dev_k">0.01</param>
       </choix>
     </option>
   </formalisme>
   <formalisme nom="radiation interception">
-    <option choix="1" nom="radiation interception" nomParam="codetransrad">
+    <option choix="2" nom="radiation interception" nomParam="codetransrad">
       <choix code="1" nom="Beer's law"/>
       <choix code="2" nom="radiation transfers">
         <param format="integer" max="3" min="1" nom="forme">1</param>
@@ -192,7 +192,7 @@
   <formalisme nom="partitioning of biomass in organs">
     <param format="real" max="500.0" min="50.0" nom="slamin">180.000</param>
     <param format="real" max="0.5" min="0.0" nom="envfruit">0.10000</param>
-    <param format="real" max="300.0" min="0.0" nom="sea">100.00000</param>
+    <param format="real" max="300.0" min="0.0" nom="sea">0.00000</param>
     <option choix="2" nom="Simulation of Nitrogen and Carbon reserves" nomParam="code_acti_reserve">
       <choix code="1" nom="yes">
         <param format="real" max="1.0" min="0.0" nom="propresP">0.47</param>
@@ -495,7 +495,7 @@
           <param format="real" max="0.0" min="-2.0" nom="adens">-0.12</param>
           <param format="real" max="200.0" min="1.0" nom="bdens">5</param>
           <param format="real" max="2.0" min="0.1" nom="hautbase">0</param>
-          <param format="real" max="5.0" min="0.1" nom="hautmax">2.5</param>
+          <param format="real" max="5.0" min="0.1" nom="hautmax">1.75</param>
           <param format="real" max="2.0" min="0.2" nom="khaut">0.7</param>
           <param format="real" max="500.0" min="10.0" nom="durvieF">200</param>
           <optionv nom="codlainet">
@@ -1967,7 +1967,7 @@
           <param format="real" max="0.0" min="-2.0" nom="adens">-0.12</param>
           <param format="real" max="200.0" min="1.0" nom="bdens">5</param>
           <param format="real" max="2.0" min="0.1" nom="hautbase">0</param>
-          <param format="real" max="5.0" min="0.1" nom="hautmax">2.5</param>
+          <param format="real" max="5.0" min="0.1" nom="hautmax">1.75</param>
           <param format="real" max="2.0" min="0.2" nom="khaut">0.7</param>
           <param format="real" max="500.0" min="10.0" nom="durvieF">140</param>
           <optionv nom="codlainet">
@@ -2059,7 +2059,7 @@
           <param format="real" max="0.0" min="-2.0" nom="adens">-0.12</param>
           <param format="real" max="200.0" min="1.0" nom="bdens">5</param>
           <param format="real" max="2.0" min="0.1" nom="hautbase">0</param>
-          <param format="real" max="5.0" min="0.1" nom="hautmax">2.5</param>
+          <param format="real" max="5.0" min="0.1" nom="hautmax">1.75</param>
           <param format="real" max="2.0" min="0.2" nom="khaut">0.7</param>
           <param format="real" max="500.0" min="10.0" nom="durvieF">170</param>
           <optionv nom="codlainet">
@@ -2151,7 +2151,7 @@
           <param format="real" max="0.0" min="-2.0" nom="adens">-0.12</param>
           <param format="real" max="200.0" min="1.0" nom="bdens">5</param>
           <param format="real" max="2.0" min="0.1" nom="hautbase">0</param>
-          <param format="real" max="5.0" min="0.1" nom="hautmax">2.5</param>
+          <param format="real" max="5.0" min="0.1" nom="hautmax">1.75</param>
           <param format="real" max="2.0" min="0.2" nom="khaut">0.7</param>
           <param format="real" max="500.0" min="10.0" nom="durvieF">200</param>
           <optionv nom="codlainet">
@@ -2243,7 +2243,7 @@
           <param format="real" max="0.0" min="-2.0" nom="adens">-0.12</param>
           <param format="real" max="200.0" min="1.0" nom="bdens">5</param>
           <param format="real" max="2.0" min="0.1" nom="hautbase">0</param>
-          <param format="real" max="5.0" min="0.1" nom="hautmax">2.5</param>
+          <param format="real" max="5.0" min="0.1" nom="hautmax">1.75</param>
           <param format="real" max="2.0" min="0.2" nom="khaut">0.7</param>
           <param format="real" max="500.0" min="10.0" nom="durvieF">200</param>
           <optionv nom="codlainet">
