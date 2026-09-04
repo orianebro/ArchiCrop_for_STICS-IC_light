@@ -135,6 +135,21 @@ for (doe_row in 1:nrow(df_doe)) {
       )
     file.copy(tec_file, new_tec_file, overwrite = TRUE)
 
+    # Emergence is not observed for the generated treatments. Let STICS
+    # calculate it from soil and weather for both crops.
+    SticsRFiles::set_param_xml(
+      new_tec_file,
+      "codestade",
+      2,
+      overwrite = TRUE
+    )
+    SticsRFiles::set_param_xml(
+      new_tec_file,
+      "ilev",
+      999,
+      overwrite = TRUE
+    )
+
     SticsRFiles::set_param_xml(
       new_tec_file,
       "orientrang",

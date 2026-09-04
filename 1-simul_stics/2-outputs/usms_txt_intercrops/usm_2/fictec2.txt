@@ -43,9 +43,9 @@ eau_mini_decisemis
 humirac_decisemis
 0.75
 codestade
-1
+2
 ilev
-181
+999
 iamf
 999
 ilax
