@@ -31,8 +31,8 @@ if __name__ == '__main__':
     # Define the inputs for the simulation
     # tec_files_1=list(path.glob("sorghum_*_tec.xml"))
     # tec_files_2=list(path.glob("maize_*_tec.xml"))
-    plant_file_1=path.glob('plant/sorgho_imp_M_v10_plt.xml')
-    plant_file_2=path.glob('plant/corn_LI_step2_BEOU_plt.xml')
+    plant_file_1="../../1-simul_stics/0-data/workspace_v11_gen/plant/sorgho_trop_plt.xml"
+    plant_file_2="../../1-simul_stics/0-data/workspace_v11_gen/plant/corn_LI_step2_BEOU_plt.xml"
 
     tec_files_1 = []
     tec_files_2 = []
@@ -185,7 +185,7 @@ if __name__ == '__main__':
     with Pool(n_cpu) as p:
         start_time = t.time()
         p.starmap_async(run_archicrop_parallel_IC, 
-                        [({usm:param_sets[usm]}, {usm:d_outputs[usm]}, {usm:doe_adapt[usm]}, Path('../../3-3D_light_inter/0-data/mtg_obj'), save_scenes) 
+                        [({usm:param_sets[usm]}, {usm:d_outputs[usm]}, {usm:doe_adapt[usm]}, '../../3-3D_light_inter/0-data/mtg_obj/', save_scenes) 
                         for i,usm in enumerate(id_usm)]).get()
         end_time = t.time()
         elapsed_time = (end_time - start_time)/3600

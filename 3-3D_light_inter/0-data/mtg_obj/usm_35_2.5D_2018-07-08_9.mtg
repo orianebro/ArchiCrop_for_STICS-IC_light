@@ -1,0 +1,30 @@
+CODE :  	FORM-A
+
+CLASSES :
+SYMBOL	SCALE	DECOMPOSITION	INDEXATION	DEFINITION
+$	0	FREE	FREE	IMPLICIT
+
+DESCRIPTION :
+LEFT	RIGHT	RELTYPE	MAX
+
+FEATURES :
+NAME	TYPE
+Id	INT
+species	STRING
+rank	INT
+length	REAL
+visible_length	REAL
+is_green	INT
+stem_diameter	REAL
+azimuth	REAL
+age	REAL
+tiller_angle	REAL
+leaf_area	REAL
+visible_leaf_area	REAL
+senescent_area	REAL
+senescent_length	REAL
+shape_max_width	REAL
+inclination	REAL
+
+MTG :
+ENTITY-CODE	Id	species	rank	length	visible_length	is_green	stem_diameter	azimuth	age	tiller_angle	leaf_area	visible_leaf_area	senescent_area	senescent_length	shape_max_width	inclination
