@@ -188,7 +188,7 @@ function run_usm(scenes, dates, options, meteo, models; output_path=nothing)
     sort!(df_apar_combined, [:step_number, :group, :object_id])
     # Compute incoming PAR energy for each matched meteo row and attach the simulation date
     Ri_PAR_q = [row.Ri_PAR_f * row.duration * scene_area for row in meteo_growth]
-    df_meteo = DataFrame(step_number = 1:length(meteo_growth), date = dates, Ri_PAR_q = Ri_PAR_q)
+    df_meteo = DataFrame(step_number=1:length(meteo_growth), date=dates, Ri_PAR_q=Ri_PAR_q)
     joined_df = leftjoin(df_apar_combined, df_meteo, on=:step_number)
     joined_df.fapar = joined_df.apar_sum ./ joined_df.Ri_PAR_q
 
@@ -227,7 +227,7 @@ all_time = @elapsed let
     end
 end
 println("All simulations took $(all_time) seconds.")
-# All simulations took 3161.840156083 seconds.
+# All simulations took 2197.865139875 seconds on an M3 macbook.
 
 #. Running one simulation only:
 algo = "Beer"

@@ -116,7 +116,7 @@ end
 mesh(df_gp[80, 4].merged_mesh, color=:green)
 
 ###################### Simulating a USM with Archimed ######################
-usm = 14 # Choose the usm index here
+usm = 4 # Choose the usm index here
 algo = "Beer" # Choose the algorithm here ("Beer" or "2.5D")
 df_gp_usm = filter(row -> row.usm == usm && row.algo == algo, df_gp)
 x_min, y_min, x_max, y_max = domains[domains.usms .== usm, 2:end][1, :]
