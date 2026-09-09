@@ -163,7 +163,7 @@ code_shape
 haut_dev_x0
 750
 haut_dev_k
-0.01
+0.005
 codetransrad
 2
 forme
@@ -2227,7 +2227,7 @@ bdens
 hautbase
 0
 hautmax
-1.75
+2
 khaut
 0.7
 durvieF

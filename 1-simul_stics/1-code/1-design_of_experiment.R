@@ -3,7 +3,7 @@
 # 1. Table with: species simulated (principal and secondary), design name (sole crop, intercrop mixed, intercrop alternate, intercrop strips), row orientation, interrow distance, sowing date for latest crop,
 # 2. Table for mapping true vs stics interrow designs; because stics make some simplifications and defines interrow as inter-same species (see vezy et al. (2023) fig. 2)
 
-species <- c("sorghum", "maize")
+species <- c("sorghum", "maize_trop")
 designs <- c(
   # "sole crop",
   "intercrop mixed",
@@ -14,8 +14,8 @@ designs <- c(
 row_orientations <- c("N-S", "E-W") # 0 and pi/2 for stics
 
 # For the intercropping designs, we will have variations in interrow distance, number of rows per strip, or intrarow_distance depending on the design. We will have 3 levels of variation for each of these factors (high, middle, low).
-interrow_distance = c("high", "middle", "low") # This is only for "intercrop alternate" design where we will have 3 levels of interrow distance
-n_rows = c("high", "middle", "low") # This is only for the strip design. For stics, this is the number of rows per strip (for intercropping)
+interrow_distance <- c("high", "middle", "low") # This is only for "intercrop alternate" design where we will have 3 levels of interrow distance
+n_rows <- c("high", "middle", "low") # This is only for the strip design. For stics, this is the number of rows per strip (for intercropping)
 intrarow_distance <- c("high", "middle", "low") # This is only for the intercrop mixed design
 sowing_date_latest_crop <- c("same", "later") # This is for activating relay strips
 

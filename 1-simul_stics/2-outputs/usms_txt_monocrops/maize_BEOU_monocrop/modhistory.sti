@@ -1,5 +1,5 @@
  -----------------------------------------------------------------------------------------
- Stics history file Creation date: 2026/09/04-11:00:12
+ Stics history file Creation date: 2026/09/09-11:55:35
  STICS Version: d47aab032_2026-07-20                              
  -----------------------------------------------------------------------------------------
  
@@ -296,7 +296,7 @@
  P_adens  -0.119999997    
  P_bdens    5.00000000    
  P_hautbase    0.00000000    
- P_hautmax    1.75000000    
+ P_hautmax    2.00000000    
  P_khaut  0.699999988    
  P_durvieF    140.000000    
  P_dlaimaxbrut    1.90000003E-03
@@ -402,22 +402,10 @@
  problem with your profile output dates --> they have been recalculated
  Initial values over the soil depth (155 cm):     SWC = 197. mm     SMN =  8.0 kg N/ha
  attention: there are no longer any effective roots, on day :          47
- high senescence : no more green leaves before LAX stage
  attention: there are no longer any effective roots, on day :          48
- high senescence : no more green leaves before LAX stage
  attention: there are no longer any effective roots, on day :          49
- high senescence : no more green leaves before LAX stage
  attention: there are no longer any effective roots, on day :          50
- high senescence : no more green leaves before LAX stage
- attention: there are no longer any effective roots, on day :          51
- high senescence : no more green leaves before LAX stage
- attention: there are no longer any effective roots, on day :          52
- high senescence : no more green leaves before LAX stage
- attention: there are no longer any effective roots, on day :          53
- high senescence : no more green leaves before LAX stage
- attention: there are no longer any effective roots, on day :          54
- high senescence : no more green leaves before LAX stage
  Program end ... 
  -----------------------------------------------------------------------------------------
- Stics history file end End date: 2026/09/04-11:00:12
+ Stics history file end End date: 2026/09/09-11:55:35
  -----------------------------------------------------------------------------------------

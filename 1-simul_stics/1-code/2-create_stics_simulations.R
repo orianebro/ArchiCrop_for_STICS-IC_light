@@ -320,7 +320,7 @@ SticsRFiles::gen_usms_xml(
   param_df = usms_param_df
 )
 
-SticsRFiles::upgrade_usms_xml_10_11(
+SticsRFiles:::upgrade_usms_xml_10_11(
   file.path(generated_workspace, "usms.xml"),
   generated_workspace,
   overwrite = TRUE

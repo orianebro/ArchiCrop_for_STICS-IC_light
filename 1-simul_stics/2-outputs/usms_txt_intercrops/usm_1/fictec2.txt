@@ -23,7 +23,7 @@ variete
 codetradtec
 1
 interrang
-0.4
+0.8
 orientrang
 0
 code_strip

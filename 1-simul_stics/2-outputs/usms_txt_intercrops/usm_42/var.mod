@@ -15,3 +15,5 @@ masecveg
 masec_kg_ha
 mafeuil_kg_ha
 matigestruc_kg_ha
+QNfeuilleres
+QNtige
