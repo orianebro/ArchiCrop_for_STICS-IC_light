@@ -170,8 +170,7 @@ for (doe_row in 1:nrow(df_doe)) {
     } else {
       # For the other designs, we compute it:
       df_doe$interrow_stics[doe_row] <-
-        (n_rows[1] - 1) *
-        interrow_distance[1] +
+        (n_rows[1] - 1) * interrow_distance[1] +
         (n_rows[2] - 1) * interrow_distance[2] +
         2 * max(interrow_distance)
     }
