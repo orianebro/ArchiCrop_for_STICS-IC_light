@@ -1,5 +1,5 @@
  -----------------------------------------------------------------------------------------
- Stics history file Creation date: 2026/09/09-11:56:17
+ Stics history file Creation date: 2026/09/15-11:37:32
  STICS Version: d47aab032_2026-07-20                              
  -----------------------------------------------------------------------------------------
  
@@ -504,7 +504,7 @@
  P_adens  -0.119999997    
  P_bdens    5.00000000    
  P_hautbase    0.00000000    
- P_hautmax    2.00000000    
+ P_hautmax    2.50000000    
  P_khaut  0.699999988    
  P_durvieF    140.000000    
  P_dlaimaxbrut    1.90000003E-03
@@ -627,8 +627,7 @@
  attention: there are no longer any effective roots, on day :          51
  crop height A > crop height P          53
  crop height A > crop height P          54
- crop height A > crop height P         134
  Program end ... 
  -----------------------------------------------------------------------------------------
- Stics history file end End date: 2026/09/09-11:56:17
+ Stics history file end End date: 2026/09/15-11:37:33
  -----------------------------------------------------------------------------------------
