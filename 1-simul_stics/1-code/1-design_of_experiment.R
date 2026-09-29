@@ -96,6 +96,32 @@ for (i in designs) {
   }
 }
 
+# Adding the wheat-maize delayed strip intercrop simulations (only this design, number of plants in the strip, row orientation, )
+species_wheat_maize <- c("wheat", "maize_temp")
+
+for (j in row_orientations) {
+  for (k in n_rows) {
+    for (l in n_rows) {
+      df_doe <- rbind(
+        df_doe,
+        data.frame(
+          species_id = paste(species_wheat_maize, collapse = "-"),
+          species_principal = species_wheat_maize[1],
+          species_secondary = species_wheat_maize[2],
+          design = "intercrop strips",
+          row_orientation = j,
+          interrow_distance_principal = "middle",
+          interrow_distance_secondary = "middle",
+          n_rows_principal = k,
+          n_rows_secondary = l,
+          intrarow_distance = "middle",
+          sowing_date_latest_crop = "same" # We force it in the later script
+        )
+      )
+    }
+  }
+}
+
 df_doe
 
 write.csv(df_doe, "2-outputs/doe.csv", row.names = FALSE)

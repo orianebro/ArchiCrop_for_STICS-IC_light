@@ -48,4 +48,65 @@
             <fobs>null</fobs>
         </plante>
     </usm>
+
+<usm nom="Auzeville_Arminda_Pactol_relay_2007">
+  <datedebut>268</datedebut>
+  <datefin>730</datefin>
+  <finit>relay_Auzeville_2plants_ini.xml</finit>
+  <nomsol>Auzeville_relay_2006_2007</nomsol>
+  <fstation>Auzeville_relay_sta.xml</fstation>
+  <fclim1>auzevilj.2006</fclim1>
+  <fclim2>auzevilj.2007</fclim2>
+  <culturean>0</culturean>
+  <nbplantes>2</nbplantes>
+  <codesimul>0</codesimul>
+  <plante dominance="1">
+    <fplt>wheat_relay_plt.xml</fplt>
+    <ftec>wheat_relay_intercrop_tec.xml</ftec>
+    <flai>null</flai>
+    <fobs>null</fobs>
+  </plante>
+  <plante dominance="2">
+    <fplt>maize_relay_plt.xml</fplt>
+    <ftec>maize_relay_intercrop_tec.xml</ftec>
+    <flai>null</flai>
+    <fobs>null</fobs>
+  </plante>
+</usm>
+<usm nom="Auzeville_Arminda_monocrop_2007">
+  <datedebut>268</datedebut>
+  <datefin>730</datefin>
+  <finit>relay_Auzeville_1plants_ini.xml</finit>
+  <nomsol>Auzeville_relay_2006_2007</nomsol>
+  <fstation>Auzeville_relay_sta.xml</fstation>
+  <fclim1>auzevilj.2006</fclim1>
+  <fclim2>auzevilj.2007</fclim2>
+  <culturean>0</culturean>
+  <nbplantes>1</nbplantes>
+  <codesimul>0</codesimul>
+  <plante dominance="1">
+    <fplt>wheat_relay_plt.xml</fplt>
+    <ftec>wheat_relay_monocrop_tec.xml</ftec>
+    <flai>null</flai>
+    <fobs>null</fobs>
+  </plante>
+</usm>
+<usm nom="Auzeville_Pactol_monocrop_2007">
+  <datedebut>268</datedebut>
+  <datefin>730</datefin>
+  <finit>relay_Auzeville_1plants_ini.xml</finit>
+  <nomsol>Auzeville_relay_2006_2007</nomsol>
+  <fstation>Auzeville_relay_sta.xml</fstation>
+  <fclim1>auzevilj.2006</fclim1>
+  <fclim2>auzevilj.2007</fclim2>
+  <culturean>0</culturean>
+  <nbplantes>1</nbplantes>
+  <codesimul>0</codesimul>
+  <plante dominance="1">
+    <fplt>maize_relay_plt.xml</fplt>
+    <ftec>maize_relay_monocrop_tec.xml</ftec>
+    <flai>null</flai>
+    <fobs>null</fobs>
+  </plante>
+</usm>
 </usms>
