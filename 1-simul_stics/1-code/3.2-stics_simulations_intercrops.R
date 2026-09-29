@@ -30,11 +30,20 @@ gen_usms_xml2txt(
   parallel = TRUE
 )
 sim_run_beer <- stics_wrapper(sim_options)
+
 for (x in names(sim_run_beer$sim_list)) {
   sim_run_beer$sim_list[[x]]$Plant <- ifelse(
     sim_run_beer$sim_list[[x]]$pla == "sor",
     "sorghum",
-    "maize"
+    ifelse(
+      sim_run_beer$sim_list[[x]]$pla == "mai",
+      "maize",
+      ifelse(
+        sim_run_beer$sim_list[[x]]$pla == "ble",
+        "wheat",
+        NA_character_
+      )
+    )
   )
 }
 
@@ -52,7 +61,15 @@ for (x in names(sim_run_2.5D$sim_list)) {
   sim_run_2.5D$sim_list[[x]]$Plant <- ifelse(
     sim_run_2.5D$sim_list[[x]]$pla == "sor",
     "sorghum",
-    "maize"
+    ifelse(
+      sim_run_2.5D$sim_list[[x]]$pla == "mai",
+      "maize",
+      ifelse(
+        sim_run_2.5D$sim_list[[x]]$pla == "ble",
+        "wheat",
+        NA_character_
+      )
+    )
   )
 }
 

@@ -30,7 +30,12 @@ gen_usms_xml2txt(
   workspace = workspace,
   out_dir = output_path,
   parallel = TRUE,
-  usm = c("sorghum_monocrop", "maize_BEOU_monocrop")
+  usm = c(
+    "sorghum_monocrop",
+    "maize_BEOU_monocrop",
+    "Auzeville_Arminda_monocrop_2007",
+    "Auzeville_Pactol_monocrop_2007"
+  )
 )
 sim_run_beer <- stics_wrapper(sim_options)
 

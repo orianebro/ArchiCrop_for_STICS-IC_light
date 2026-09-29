@@ -1,5 +1,5 @@
  -----------------------------------------------------------------------------------------
- Stics history file Creation date: 2026/09/28-17:57:00
+ Stics history file Creation date: 2026/09/29-11:41:59
  STICS Version: d47aab032_2026-07-20                              
  -----------------------------------------------------------------------------------------
  
@@ -340,7 +340,7 @@
     135      1      1.5     40.0     53.0      0.0      0.0                                                                                                                                                                                                                                                                                                                                                                                                                                                          
  P_iplt0          197
  P_profsem    5.00000000    
- P_densitesem    1.56250000    
+ P_densitesem    4.68750000    
  P_variete           17
  P_interrang    3.20000005    
  P_orientrang    1.57079637    
@@ -623,6 +623,7 @@
  attention: there are no longer any effective roots, on day :          66
  attention: there are no longer any effective roots, on day :          67
  crop height A > crop height P         105
+ crop height A > crop height P         105
  main crop planting is after associated crop planting
  main crop planting is after associated crop planting
  main crop planting is after associated crop planting
@@ -751,5 +752,5 @@
  main crop planting is after associated crop planting
  Program end ... 
  -----------------------------------------------------------------------------------------
- Stics history file end End date: 2026/09/28-17:57:01
+ Stics history file end End date: 2026/09/29-11:41:59
  -----------------------------------------------------------------------------------------

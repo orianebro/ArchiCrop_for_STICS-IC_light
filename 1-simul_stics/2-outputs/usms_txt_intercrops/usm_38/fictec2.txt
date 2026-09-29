@@ -17,7 +17,7 @@ iplt0
 profsem
 5.00000
 densitesem
-4.16666666666667
+2.08333333333333
 variete
 17
 codetradtec
