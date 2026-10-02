@@ -2,8 +2,10 @@
 
 # Read the design of experiment defined in 1-design_of_experiment.R
 df_doe <- read.csv("2-outputs/doe.csv")
-df_doe$interrow_stics <- NA
-df_doe$sowing_density <- NA
+df_doe$interrow_stics_1 <- NA
+df_doe$interrow_stics_2 <- NA
+df_doe$sowing_density_1 <- NA
+df_doe$sowing_density_2 <- NA
 
 # Define the original workspace and the generated workspaces for the simulations
 original_workspace <- "0-data/workspace_v11"
@@ -53,9 +55,9 @@ n_rows_per_species <- list(
     "low" = 2
   ),
   "wheat" = c(
-    "high" = 12,
-    "middle" = 6,
-    "low" = 3
+    "high" = 14,
+    "middle" = 10,
+    "low" = 6
   )
 )
 
@@ -74,27 +76,38 @@ intrarow_distance_per_species <- list(
   )
 )
 
-sowing_date <- 177
 sowing_delay <- c("same" = 0, "later" = 20)
 
-## Create the tec files
+sowing_date_per_species <- c(
+  sorghum = 177,
+  maize_trop = 177,
+  wheat = 298, # 25 october, year 1
+  maize_temp = 473 # 18 april, year 2
+)
 
+## Create the tec files
 variety_code_per_species <- c(
   sorghum = 1, # We only have one variety
   maize_trop = 17, # BEOU, from the tec file we are using as reference
-  maize_temp = 4,
-  wheat = 1
+  maize_temp = 2, # Pactol
+  wheat = 1 # Arminda
 )
 
 # Reference tec files from the sole crops:
 tec_ref <- c(
   sorghum = file.path("0-data", "workspace_v11", "02NT18SorgV2D1_tec.xml"),
-  maize_trop = file.path("0-data", "workspace_v11", "maize_monocrop_tec.xml")
+  maize_trop = file.path("0-data", "workspace_v11", "maize_monocrop_tec.xml"),
+  maize_temp = file.path(
+    "0-data",
+    "workspace_v11",
+    "maize_relay_monocrop_tec.xml"
+  ),
+  wheat = file.path("0-data", "workspace_v11", "wheat_relay_monocrop_tec.xml")
 )
 
 #! start loop over the rows of the design of experiment here
 for (doe_row in 1:nrow(df_doe)) {
-  # doe_row <- 1
+  # doe_row <- 46
   sim <- df_doe[doe_row, ] # This is just to test the code on one row of the design of experiment, we will then loop over all rows
 
   row_orientation <- row_orientation_values[sim$row_orientation]
@@ -123,10 +136,15 @@ for (doe_row in 1:nrow(df_doe)) {
   names(n_rows) <- species
 
   sowing_date_latest_crop <- sim$sowing_date_latest_crop
-  intrarow_distance <- sim$intrarow_distance
+  intrarow_distance <- sim$intrarow_distance #! should be by species no?
+
+  interrow_stics <- c(NA, NA)
+  names(interrow_stics) <- species
+  sowing_density <- c(NA, NA)
+  names(sowing_density) <- species
 
   for (i in species) {
-    # i <- species[1]
+    # i <- species[2]
     tec_file <- tec_ref[i]
     new_tec_file <-
       file.path(
@@ -160,25 +178,43 @@ for (doe_row in 1:nrow(df_doe)) {
     SticsRFiles::set_param_xml(
       new_tec_file,
       "variete",
-      variety_code_per_species[i], # MANT
+      variety_code_per_species[i],
       overwrite = TRUE
     )
 
+    intrarow_distance_value <-
+      intrarow_distance_per_species[[i]][
+        intrarow_distance
+      ]
+
     if (design == "intercrop mixed") {
       # For the mixed design, we need take the interrow distance as is (see vezy et al. 2023, Fig 2)
-      df_doe$interrow_stics[doe_row] <- interrow_distance[i]
+      interrow_stics[i] <- interrow_distance[i] # this is just the interrow of the sowing machine
+      sowing_density[i] <- 1 / (interrow_distance[i] * intrarow_distance_value)
+    } else if (design == "intercrop alternate") {
+      if (interrow_distance[1] != interrow_distance[2]) {
+        stop(
+          "For the alternate design, the interrow distance must be the same for both species. Please check your design of experiment."
+        )
+      }
+      interrow_stics[i] <- interrow_distance[1] * 2 # in alternate design, we provide it between two rows of the same species.
+      # This is a particular case of the equation given for the strips
+      sowing_density[i] <- 1 / (interrow_stics[i] * intrarow_distance_value)
+    } else if (design == "intercrop strips") {
+      interrow_stics[i] <- n_rows[1] *
+        interrow_distance[1] +
+        n_rows[2] * interrow_distance[2]
+      # interrow_stics can be viewed as the total width of the intercrop scene
+      sowing_density[i] <-
+        1 / ((interrow_stics[i] / n_rows[i]) * intrarow_distance_value)
     } else {
-      # For the other designs, we compute it:
-      df_doe$interrow_stics[doe_row] <-
-        (n_rows[1] - 1) * interrow_distance[1] +
-        (n_rows[2] - 1) * interrow_distance[2] +
-        2 * max(interrow_distance)
+      stop("Design not recognized. Please check your design of experiment.")
     }
 
     SticsRFiles::set_param_xml(
       new_tec_file,
       "interrang",
-      df_doe$interrow_stics[doe_row],
+      interrow_stics[i],
       overwrite = TRUE
     )
 
@@ -198,16 +234,10 @@ for (doe_row in 1:nrow(df_doe)) {
       )
     }
 
-    intrarow_distance_value <-
-      intrarow_distance_per_species[[species["principal"]]][intrarow_distance]
-
-    df_doe$sowing_density[doe_row] <- 1 /
-      (interrow_distance[i] * intrarow_distance_value)
-
     SticsRFiles::set_param_xml(
       new_tec_file,
       "densitesem",
-      df_doe$sowing_density[doe_row],
+      sowing_density[i],
       overwrite = TRUE
     )
 
@@ -215,24 +245,35 @@ for (doe_row in 1:nrow(df_doe)) {
       SticsRFiles::set_param_xml(
         new_tec_file,
         "iplt0",
-        sowing_date + sowing_delay[sim$sowing_date_latest_crop],
+        sowing_date_per_species[i] + sowing_delay[sim$sowing_date_latest_crop],
         overwrite = TRUE
       )
     } else {
       SticsRFiles::set_param_xml(
         new_tec_file,
         "iplt0",
-        sowing_date,
+        sowing_date_per_species[i],
         overwrite = TRUE
       )
     }
   }
+
+  df_doe$interrow_stics_1[doe_row] <- interrow_stics[1]
+  df_doe$interrow_stics_2[doe_row] <- interrow_stics[2]
+  df_doe$sowing_density_1[doe_row] <- sowing_density[1]
+  df_doe$sowing_density_2[doe_row] <- sowing_density[2]
 }
 
-# Copy ini file:
+# Copy ini files:
 file.copy(
   file.path(original_workspace, "inter-sorghum-maize_ini.xml"),
   file.path(generated_workspace, "inter-sorghum-maize_ini.xml"),
+  overwrite = TRUE
+)
+
+file.copy(
+  file.path(original_workspace, "relay_Auzeville_2plants_ini.xml"),
+  file.path(generated_workspace, "relay_Auzeville_2plants_ini.xml"),
   overwrite = TRUE
 )
 
@@ -241,20 +282,26 @@ dir.create(file.path(generated_workspace, "plant"), showWarnings = FALSE)
 
 plt_files <- c(
   sorghum = "sorgho_trop_plt.xml",
-  maize_trop = "corn_LI_step2_BEOU_plt.xml"
+  maize_trop = "corn_LI_step2_BEOU_plt.xml",
+  maize_temp = "maize_relay_plt.xml",
+  wheat = "wheat_relay_plt.xml"
 )
 
-file.copy(
-  file.path(original_workspace, "plant", plt_files["sorghum"]),
-  file.path(generated_workspace, "plant", plt_files["sorghum"]),
-  overwrite = TRUE
-)
+for (i in names(plt_files)) {
+  if (!file.exists(file.path(original_workspace, "plant", plt_files[i]))) {
+    stop(paste0(
+      "Plant file for ",
+      i,
+      " does not exist in the original workspace."
+    ))
+  }
 
-file.copy(
-  file.path(original_workspace, "plant", plt_files["maize_trop"]),
-  file.path(generated_workspace, "plant", plt_files["maize_trop"]),
-  overwrite = TRUE
-)
+  file.copy(
+    file.path(original_workspace, "plant", plt_files[i]),
+    file.path(generated_workspace, "plant", plt_files[i]),
+    overwrite = TRUE
+  )
+}
 
 file.copy(
   file.path(original_workspace, "param_gen.xml"),
@@ -282,6 +329,12 @@ file.copy(
 )
 
 file.copy(
+  file.path(original_workspace, "Auzeville_relay_sta.xml"),
+  file.path(generated_workspace, "Auzeville_relay_sta.xml"),
+  overwrite = TRUE
+)
+
+file.copy(
   file.path(original_workspace, "var.mod"),
   file.path(generated_workspace, "var.mod"),
   overwrite = TRUE
@@ -294,18 +347,50 @@ file.copy(
   overwrite = TRUE
 )
 
+file.copy(
+  file.path(original_workspace, "auzevilj.2006"),
+  file.path(generated_workspace, "auzevilj.2006"),
+  overwrite = TRUE
+)
+
+file.copy(
+  file.path(original_workspace, "auzevilj.2007"),
+  file.path(generated_workspace, "auzevilj.2007"),
+  overwrite = TRUE
+)
+
 # Create the usms in the usms.xml file, each named after the doe row, and linking to the tec file needed.
 
 usms_param_df <- data.frame(
   usm = paste0("usm_", 1:nrow(df_doe)),
-  datedebut = 135,
-  datefin = 365,
-  finit = "inter-sorghum-maize_ini.xml",
-  nomsol = "02V2D1",
-  fstation = "StationNtarla_inter_sta.xml",
-  fclim1 = "ntarla_corr.2018",
-  fclim2 = "ntarla_corr.2018",
-  culturean = 1,
+  datedebut = ifelse(df_doe$species_id == "sorghum-maize_trop", 135, 268),
+  datefin = ifelse(df_doe$species_id == "sorghum-maize_trop", 365, 730),
+  finit = ifelse(
+    df_doe$species_id == "sorghum-maize_trop",
+    "inter-sorghum-maize_ini.xml",
+    "relay_Auzeville_2plants_ini.xml"
+  ),
+  nomsol = ifelse(
+    df_doe$species_id == "sorghum-maize_trop",
+    "02V2D1",
+    "Auzeville_relay_2006_2007"
+  ),
+  fstation = ifelse(
+    df_doe$species_id == "sorghum-maize_trop",
+    "StationNtarla_inter_sta.xml",
+    "Auzeville_relay_sta.xml"
+  ),
+  fclim1 = ifelse(
+    df_doe$species_id == "sorghum-maize_trop",
+    "ntarla_corr.2018",
+    "auzevilj.2006"
+  ),
+  fclim2 = ifelse(
+    df_doe$species_id == "sorghum-maize_trop",
+    "ntarla_corr.2018",
+    "auzevilj.2007"
+  ),
+  culturean = ifelse(df_doe$species_id == "sorghum-maize_trop", 1, 2),
   nbplantes = 2,
   codesimul = 0,
   fplt_1 = plt_files[df_doe$species_principal],
