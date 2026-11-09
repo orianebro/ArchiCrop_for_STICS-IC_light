@@ -53,8 +53,44 @@ rsconnect/
 2-outputs/usms_txt
 2-outputs/usms_txt_monocrops
 2-outputs/usms_txt_intercrops
+1-simul_stics/2-outputs/usms_txt_intercrops
 2-outputs/plots_intercrop/
 2-outputs/plots_monocrop/simulations_stics_monocrops_maize.png
 2-outputs/plots_monocrop/simulations_stics_monocrops_sorghum.png
+3-3D_light_inter/2-results/simulations/
 
 *.DS_Store
+
+/3-3D_light_inter/0-data/mtg_obj/
+__MACOSX/
+__pycache__/
+.ipynb_checkpoints/
+
+# Sorties détaillées et figures STICS
+/1-simul_stics/2-outputs/usms_txt_*/
+/1-simul_stics/2-outputs/plots_*/
+/1-simul_stics/2-outputs/stics_intercrops_*/
+
+# Résultats des simulations lumineuses
+/3-3D_light_inter/2-results/simulations/
+/3-3D_light_inter/2-results/simulations_*/
+
+# Figures et vidéos générées
+/3-3D_light_inter/2-results/oriane/
+/4-analyses/2-outputs/
+
+# Compact scenes regenerated from source templates and validated placements
+/3-3D_light_inter/0-data/periodic_scenes/
+
+# Full ArchiCrop runs and local recovery snapshots
+/3-3D_light_inter/0-data/full_archicrop_*/
+/3-3D_light_inter/2-results/full_archicrop_*/repository_backup/
+
+# Generated workspaces, results and one-off diagnostics (kept locally)
+/1-simul_stics/0-data/workspace_v11_gen/
+/1-simul_stics/Rplots.pdf
+/3-3D_light_inter/2-results/
+/4-analyses/2-results/
+/4-analyses/0-data/fapar_usm_*.csv
+/4-analyses/0-data/legacy_light_outputs.toml
+/4-analyses/1-code/diagnostics/
