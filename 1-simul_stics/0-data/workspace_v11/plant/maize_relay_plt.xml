@@ -160,7 +160,7 @@
     <param format="character" nom="stage_const_height">no</param>
     <param format="real" max="2.0" min="1.0" nom="elongation">1</param>
     <param format="real" max="1.0" min="0.0" nom="nw_height">0</param>
-    <option choix="1" nom="LAI or phasic development relationship" nomParam="code_shape">
+    <option choix="2" nom="LAI or phasic development relationship" nomParam="code_shape">
       <choix code="1" nom="LAI"/>
       <choix code="2" nom="Development">
         <param format="real" max="5000.0" min="0.0" nom="haut_dev_x0">998</param>
