@@ -1,5 +1,6 @@
 # Activate Beer or 2.5D in the plant and tec files:
 activate_light <- function(workspace, algorithm = c("Beer", "2.5D")) {
+  algorithm <- match.arg(algorithm)
   files_in_usms <- SticsRFiles::get_files_list(workspace)
   files_usm <- lapply(files_in_usms, function(files_usm) {
     # If the file ends with "_plt.xml", it's a plant file, and if it ends with "_tec.xml", it's a tec file.
@@ -19,7 +20,13 @@ activate_light <- function(workspace, algorithm = c("Beer", "2.5D")) {
     stop("Algorithm must be either 'Beer' or '2.5D'")
   }
 
-  lapply(files_usm, function(usm_f) {
+  # Shared plant XML files occur in several USMs. Change each file once;
+  # callers run this helper on an isolated workspace for each algorithm.
+  files_usm <- list(list(
+    plant = unique(unlist(lapply(files_usm, `[[`, "plant"), use.names = FALSE)),
+    tec = unique(unlist(lapply(files_usm, `[[`, "tec"), use.names = FALSE))
+  ))
+  invisible(lapply(files_usm, function(usm_f) {
     # Update the parameters in the tec files:
     for (tec_path in usm_f$tec) {
       SticsRFiles::set_param_xml(
@@ -38,5 +45,5 @@ activate_light <- function(workspace, algorithm = c("Beer", "2.5D")) {
         overwrite = TRUE
       )
     }
-  })
+  }))
 }
